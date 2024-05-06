@@ -3,7 +3,7 @@
 #include "Empresa.h"
 #include "Archivo.h"
 
-class EmpresaArchivo: public Archivo{
+class EmpresaArchivo: public Archivo {
 public:
     EmpresaArchivo();
     EmpresaArchivo(std::string fileName);

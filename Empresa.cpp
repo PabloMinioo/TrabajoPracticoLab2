@@ -4,7 +4,7 @@
 
 using namespace std;
 
-/// METODOS CLASE EMPRESA
+/// CONSTRUCTOR, SET Y GET DE CLASE EMPRESA
 // CONSTRUCTOR POR OMISION
 Empresa::Empresa() {
     _numeroEmpresa = 0;
@@ -27,6 +27,7 @@ Empresa::Empresa(int numeroEmpresa, string nombreEmpresa, int cantidadEmpleados,
     setEstado(estado);
 }
 
+// SET Y GET
 int Empresa::getNumeroEmpresa() {
     return _numeroEmpresa;
 }

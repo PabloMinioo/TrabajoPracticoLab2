@@ -14,7 +14,6 @@ Empresa EmpresaManager::crearEmpresa() {
     while(true) {
         cout << "INGRESE NUMERO DE EMPRESA: ";
         cin >> numeroEmpresa;
-
         // VALIDACION PARA NO REPETIR NUMERO DE EMPRESA
         if(empresaArchivo.isExist(numeroEmpresa)) {
             cout << "YA EXISTE EL NUMERO DE EMPRESA" << endl;
@@ -22,30 +21,24 @@ Empresa EmpresaManager::crearEmpresa() {
             break;
         }
     }
-
     cin.ignore();
     cout << "INGRESE NOMBRE DE LA EMPRESA: ";
     getline(cin, nombreEmpresa);
-
     cout << "INGRESE CANTIDAD DE EMPLEADOS: ";
     cin >> cantidadEmpleados;
-
     cout << "INGRESE CATEGORIA: ";
     cin >> categoria;
-
     cout << "INGRESE NUMERO DE MUNICIPIO: ";
     cin >> numeroMunicipio;
-
     cout << "INGRESE FACTURACION ANUAL";
     cin >> facturacionAnual;
-
     return Empresa(numeroEmpresa, nombreEmpresa, cantidadEmpleados, categoria, numeroMunicipio, facturacionAnual, true);
 }
 
 // MUESTRA LA EMPRESA
 void EmpresaManager::mostrar(Empresa empresa) {
     cout << "NUMERO EMPRESA: " << empresa.getNumeroEmpresa() << endl;
-    cout << "NOMBRE: " << empresa.getNombreEmpresa() << endl;
+    cout << "NOMBRE EMPRESA: " << empresa.getNombreEmpresa() << endl;
     cout << "CANTIDAD DE EMPLEADOS: " << empresa.getCantidadEmpleados() << endl;
     cout << "CATEGORIA: " << empresa.getCategoria() << endl;
     cout << "NUMERO DE MUNICIPIO: " << empresa.getNumeroMunicipio() << endl;
@@ -65,7 +58,7 @@ void EmpresaManager::cargarEmpresa(){
      }
 }
 
-// RECIBE UN NUMERO DE EMPRESA Y LA BUSCA
+// RECIBE UN NUMERO DE EMPRESA, LA BUSCA EN EL ARCHIVO Y LA MUESTRA
 void EmpresaManager::buscarEmpresa() {
     int index, numeroEmpresa;
     Empresa empresa;
@@ -149,7 +142,6 @@ void EmpresaManager::eliminarEmpresas() {
     }
 }
 
-
 void EmpresaManager::menu() {
     int opcion;
     do {
@@ -165,9 +157,8 @@ void EmpresaManager::menu() {
         cout << "-------------------------------" << endl;
         cout << "0- SALIR " << endl;
         cout << "-------------------------------" << endl;
-        cout << "Opcion: " << endl;
+        cout << "INGRESE LA OPCION: " << endl;
         cin >> opcion;
-
         switch(opcion) {
         case 1:
             system("cls");
@@ -197,6 +188,4 @@ void EmpresaManager::menu() {
         system("pause");
 
     } while(opcion != 0);
-
-
 }
