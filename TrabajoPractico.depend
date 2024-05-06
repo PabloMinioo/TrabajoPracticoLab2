@@ -1,0 +1,39 @@
+# depslib dependency file v1.0
+1714948349 source:d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\appmain.cpp
+	<iostream>
+	<cstdlib>
+	"appMenu.h"
+
+1714948509 d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\appmenu.h
+
+1714954848 source:d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\empresa.cpp
+	<string>
+	<cstring>
+	"Empresa.h"
+
+1714954649 source:d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\main.cpp
+	<iostream>
+	"EmpresaManager.h"
+
+1714951796 source:d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\archivo.cpp
+	"Archivo.h"
+
+1714951626 d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\archivo.h
+	<string>
+	<cstdio>
+
+1714953449 source:d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\empresaarchivo.cpp
+	"EmpresaArchivo.h"
+
+1714953753 d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\empresaarchivo.h
+	<string>
+	"Empresa.h"
+	"Archivo.h"
+
+1714954848 d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\empresa.h
+	<string>
+
+1714954787 d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\empresamanager.h
+	"Empresa.h"
+	"EmpresaArchivo.h"
+
