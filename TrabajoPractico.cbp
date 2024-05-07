@@ -45,6 +45,8 @@
 		<Unit filename="EmpresaManager.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="Fecha.cpp" />
+		<Unit filename="Fecha.h" />
 		<Unit filename="appMenu.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
