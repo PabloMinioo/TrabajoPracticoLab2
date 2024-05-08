@@ -1,7 +1,6 @@
 #include <string>
 #include <iostream>
 #include "EmpresaManager.h"
-
 using namespace std;
 
 /// METODOS CLASE EMPRESA
@@ -30,32 +29,33 @@ Empresa EmpresaManager::crearEmpresa() {
     cin >> categoria;
     cout << "INGRESE NUMERO DE MUNICIPIO: ";
     cin >> numeroMunicipio;
-    cout << "INGRESE FACTURACION ANUAL";
+    cout << "INGRESE FACTURACION ANUAL: ";
     cin >> facturacionAnual;
     return Empresa(numeroEmpresa, nombreEmpresa, cantidadEmpleados, categoria, numeroMunicipio, facturacionAnual, true);
 }
 
 // MUESTRA LA EMPRESA
 void EmpresaManager::mostrar(Empresa empresa) {
-    cout << "NUMERO EMPRESA: " << empresa.getNumeroEmpresa() << endl;
-    cout << "NOMBRE EMPRESA: " << empresa.getNombreEmpresa() << endl;
-    cout << "CANTIDAD DE EMPLEADOS: " << empresa.getCantidadEmpleados() << endl;
-    cout << "CATEGORIA: " << empresa.getCategoria() << endl;
-    cout << "NUMERO DE MUNICIPIO: " << empresa.getNumeroMunicipio() << endl;
-    cout << "FACTURACION ANUAL: " << empresa.getFacturacionAnual() << endl;
-    cout << "DISPONIBILIDAD: " << (empresa.getEstado() ? "DISPONIBLE" : "NO DISPONIBLE") << endl;
+    if (empresa.getEstado()) {
+        cout << "NUMERO EMPRESA: " << empresa.getNumeroEmpresa() << endl;
+        cout << "NOMBRE EMPRESA: " << empresa.getNombreEmpresa() << endl;
+        cout << "CANTIDAD DE EMPLEADOS: " << empresa.getCantidadEmpleados() << endl;
+        cout << "CATEGORIA: " << empresa.getCategoria() << endl;
+        cout << "NUMERO DE MUNICIPIO: " << empresa.getNumeroMunicipio() << endl;
+        cout << "FACTURACION ANUAL: " << empresa.getFacturacionAnual() << endl;
+        cout << "DISPONIBILIDAD: " << (empresa.getEstado() ? "DISPONIBLE" : "NO DISPONIBLE") << endl;
+    }
 }
 
 // GUARDA EL REGISTRO EN EL ARCHIVO
-void EmpresaManager::cargarEmpresa(){
-     Empresa empresa;
-     empresa = crearEmpresa();
-     if(empresaArchivo.guardar(empresa)){
+void EmpresaManager::cargarEmpresa() {
+    Empresa empresa;
+    empresa = crearEmpresa();
+    if(empresaArchivo.guardar(empresa)) {
         cout << "LA EMPRESA GUARDADA CON EXITO" << endl;
-     }
-     else{
+    } else {
         cout << "LA EMPRESA NO SE PUDO GUARDAR" << endl;
-     }
+    }
 }
 
 // RECIBE UN NUMERO DE EMPRESA, LA BUSCA EN EL ARCHIVO Y LA MUESTRA
@@ -84,10 +84,24 @@ void EmpresaManager::listarEmpresas() {
     }
 }
 
+// LISTA TODAS LAS EMPRESAS DEL ARCHIVO BACK UP
+void EmpresaManager::listarCopiaSeguridad() {
+    EmpresaArchivo backupArchivo("empresa.bkp");
+    int cantidad = backupArchivo.getCantidadRegistros();
+    cout << "LISTADO DE EMPRESAS DEL BACK UP"<< endl;
+    for (int i = 0; i < cantidad; i++) {
+        Empresa empresa = backupArchivo.leerCopiaSeguridad(i);
+        cout << "*****************" << endl;
+        mostrar(empresa);
+
+        cout << "*****************" << endl;
+    }
+}
+/*
 // CREA LA COPIA DE SEGURIDAD
 void EmpresaManager::realizarCopiaSeguridad() {
     bool hacerCopia;
-    cout << "¿REALIZAR COPIA DE SEGURIDAD? 1- SI || 2- NO";
+    cout << "REALIZAR COPIA DE SEGURIDAD? 1- SI || 2- NO ";
     cin >> hacerCopia;
     if(hacerCopia) {
         if(empresaArchivo.copiaSeguridad("empresa.bkp")) {
@@ -99,11 +113,12 @@ void EmpresaManager::realizarCopiaSeguridad() {
         cout << "LA OPERACION FUE CANCELADA" << endl;
     }
 }
+*/
 
 // ESCRIBE LOS REGISTROS DEL ARCHIVO BACK UP EN EL ARCHIVO ORIGINAL
 void EmpresaManager::restaurarCopiaSeguridad() {
     bool hacerCopia;
-    cout << "¿RESTAURAR LA COPIA DE SEGURIDAD? 1- SI || 0- NO";
+    cout << "RESTAURAR LA COPIA DE SEGURIDAD? 1- SI || 0- NO ";
     cin >> hacerCopia;
     if(hacerCopia) {
         if(empresaArchivo.restaurarCopiaSeguridad("empresa.bkp")) {
@@ -126,7 +141,7 @@ void EmpresaManager::eliminarEmpresas() {
         Empresa empresa = empresaArchivo.leer(indice);
         bool eliminar;
         mostrar(empresa);
-        cout << "¿ESTA SEGURO QUE DESEA ELIMINAR LA EMPRESA? 1- SI || 0- NO ";
+        cout << "ESTA SEGURO QUE DESEA ELIMINAR LA EMPRESA? 1- SI || 0- NO ";
         cin >> eliminar;
         if(eliminar) {
             if(empresaArchivo.eliminar(numeroEmpresa)) {
@@ -153,7 +168,7 @@ void EmpresaManager::menu() {
         cout << "2- BUSCAR EMPRESA POR NUMERO  " << endl;
         cout << "3- LISTAR TODAS LAS EMPRESAS" << endl;
         cout << "5- ELIMINAR EMPRESA LOGICA " << endl;
-        cout << "6- REALIZAR COPIA DE SEGURIDAD" << endl;
+        cout << "6- LISTAR COPIA SEGURIDAD" << endl;
         cout << "7- RESTAURAR COPIA DE SEGURIDAD" << endl;
         cout << "-------------------------------" << endl;
         cout << "0- VOLVER AL MENU PRINCIPAL " << endl;
@@ -179,7 +194,7 @@ void EmpresaManager::menu() {
             break;
         case 6:
             system("cls");
-            realizarCopiaSeguridad();
+            listarCopiaSeguridad();
             break;
         case 7:
             system("cls");

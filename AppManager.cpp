@@ -1,7 +1,6 @@
 #include <string>
 #include <iostream>
 #include <cstring>
-#include "MunicipioArchivo.h"
 #include "AppManager.h"
 
 using namespace std;
@@ -38,6 +37,7 @@ void AppManager::menu() {
             break;
         case 4:
             system("cls");
+            configuracionManager.menu();
             // CONFIGURACION:MENU
             break;
         case 5:

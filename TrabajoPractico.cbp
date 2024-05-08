@@ -39,6 +39,10 @@
 		<Unit filename="Archivo.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
+		<Unit filename="ConfiguracionManager.cpp" />
+		<Unit filename="ConfiguracionManager.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="Empresa.cpp" />
 		<Unit filename="Empresa.h" />
 		<Unit filename="EmpresaArchivo.cpp" />
@@ -65,6 +69,10 @@
 		</Unit>
 		<Unit filename="Reportes.cpp" />
 		<Unit filename="Reportes.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="ReportesPruebas.cpp" />
+		<Unit filename="ReportesPruebas.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="main.cpp" />

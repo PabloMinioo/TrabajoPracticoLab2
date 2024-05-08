@@ -1,4 +1,5 @@
 #include "EmpresaArchivo.h"
+
 using namespace std;
 
 // CONSTRUCTOR POR OMISION
@@ -79,6 +80,19 @@ Empresa EmpresaArchivo::leer(int index) {
     return empresa;
 }
 
+// RECIBE EL NOMBRE DE UN ARCHIVO Y LO MUESTRA (BAKC UP)
+Empresa EmpresaArchivo::leerCopiaSeguridad(int index) {
+    Empresa empresaBackUp;
+    FILE *pFile = fopen("empresa.bkp", "rb");
+    if (pFile == nullptr) {
+        return empresaBackUp;
+    }
+    fseek(pFile, index * sizeof(Empresa), SEEK_SET);
+    fread(&empresaBackUp, sizeof(Empresa), 1, pFile);
+    fclose(pFile);
+    return empresaBackUp;
+}
+
 // RECIBE UN NUMERO DE EMPRESA Y VALIDA SI EXISTE EL NUMERO DE EMPRESA
 bool EmpresaArchivo::isExist(int numeroEmpresa) {
     return buscar(numeroEmpresa) != -1;
@@ -126,3 +140,4 @@ bool EmpresaArchivo::eliminar(int numeroEmpresa){
     empresa.setEstado(0);
     return guardar(indice, empresa);
 }
+

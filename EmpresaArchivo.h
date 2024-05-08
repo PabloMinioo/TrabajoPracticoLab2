@@ -4,6 +4,7 @@
 #include "Archivo.h"
 
 class EmpresaArchivo: public Archivo {
+private:
 public:
     EmpresaArchivo();
     EmpresaArchivo(std::string fileName);
@@ -11,11 +12,11 @@ public:
     bool guardar(Empresa empresa);
     bool guardar(int index, Empresa empresa);
     Empresa leer(int index);
+    Empresa leerCopiaSeguridad(int index);
     int buscar(int numeroEmpresa);
     bool eliminar(int numeroEmpresa);
     int getCantidadRegistros();
     bool isExist(int numeroEmpresa);
     bool copiaSeguridad(std::string fileName="empresa.bkp");
     bool restaurarCopiaSeguridad(std::string fileName="empresa.bkp");
-private:
 };
