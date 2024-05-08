@@ -1,20 +1,29 @@
 #pragma once
 #include <string>
 
+/*
+CLASE EMPRESA:
+    NUMERO MUNICIPIO (1 - 135)
+    NOMBRE MUNICIPIO (30 CARACTERES)
+    SECCION (1 - 9)
+    CANTIDAD HABITANTES
+    ESTADO
+*/
+
 class Municipio {
-    /// PROPIEDADES
 private:
+    /// PROPIEDADES
     int _numeroMunicipio;
     char _nombre[30];
     int _seccionPerteneciente;
     int _cantHabitantes;
     bool _estado;
-    /// METODOS
 public:
     /// CONSTRUCTOR
     Municipio();
     Municipio(int numeroMunicipio, std::string nombre, int seccionPerteneciente, int cantHabitantes, bool estado);
 
+    /// SET Y GETS
     void setNumeroMunicipio(int numeroMunicipio);
     int getNumeroMunicipio();
 

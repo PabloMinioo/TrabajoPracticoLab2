@@ -31,6 +31,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="AppManager.cpp" />
+		<Unit filename="AppManager.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="Archivo.cpp" />
 		<Unit filename="Archivo.h">
 			<Option target="&lt;{~None~}&gt;" />
@@ -59,7 +63,10 @@
 		<Unit filename="MunicipioManager.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="appMenu.h" />
+		<Unit filename="Reportes.cpp" />
+		<Unit filename="Reportes.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

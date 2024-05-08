@@ -51,10 +51,10 @@ void EmpresaManager::cargarEmpresa(){
      Empresa empresa;
      empresa = crearEmpresa();
      if(empresaArchivo.guardar(empresa)){
-        cout << "Empresa guardada con exito!" << endl;
+        cout << "LA EMPRESA GUARDADA CON EXITO" << endl;
      }
      else{
-        cout << "No se pudo guardar la empresa :(" << endl;
+        cout << "LA EMPRESA NO SE PUDO GUARDAR" << endl;
      }
 }
 
@@ -87,65 +87,66 @@ void EmpresaManager::listarEmpresas() {
 // CREA LA COPIA DE SEGURIDAD
 void EmpresaManager::realizarCopiaSeguridad() {
     bool hacerCopia;
-    cout << "Realmente quiere hacer una copia de seguridad? 1-Si 0-No: ";
+    cout << "¿REALIZAR COPIA DE SEGURIDAD? 1- SI || 2- NO";
     cin >> hacerCopia;
     if(hacerCopia) {
         if(empresaArchivo.copiaSeguridad("empresa.bkp")) {
-            cout << "La copia de seguridad se realizo con exito!" << endl;
+            cout << "LA COPIA DE SEGURIDAD SE REALIZO CON EXITO" << endl;
         } else {
-            cout << "No se pudo realizar la copia de seguridad"<< endl;
+            cout << "NO SE PUDO REALIZAR LA COPIA DE SEGURIDAD"<< endl;
         }
     } else {
-        cout << "No se realizo la copia de seguridad." << endl;
+        cout << "LA OPERACION FUE CANCELADA" << endl;
     }
 }
 
 // ESCRIBE LOS REGISTROS DEL ARCHIVO BACK UP EN EL ARCHIVO ORIGINAL
 void EmpresaManager::restaurarCopiaSeguridad() {
     bool hacerCopia;
-    cout << "Realmente quiere resturar la copia de seguridad? 1-Si 0-No: ";
+    cout << "¿RESTAURAR LA COPIA DE SEGURIDAD? 1- SI || 0- NO";
     cin >> hacerCopia;
     if(hacerCopia) {
         if(empresaArchivo.restaurarCopiaSeguridad("empresa.bkp")) {
-            cout << "La copia de seguridad se restauro con exito!" << endl;
+            cout << "LA COPIA DE SEGURIDAD SE RESTUARO CON EXITO" << endl;
         } else {
-            cout << "No se pudo restaurar la copia de seguridad"<< endl;
+            cout << "NO SE PUDO RESTAURAR LA COPIA DE SEGURIDAD"<< endl;
         }
     } else {
-        cout << "No se realizo la restauracion de la copia de seguridad." << endl;
+        cout << "LA OPERACION FUE CANCELADA" << endl;
     }
 }
 
 // PIDE UN NUMERO DE EMPRESA Y UNA POSICION DEL REGISTRO Y REALIZA UNA BAJA LOGICA
 void EmpresaManager::eliminarEmpresas() {
     int numeroEmpresa, indice;
-    cout << "Ingrese numero de empresa que quiere eliminar: ";
+    cout << "INGRESAR NUMERO DE EMPRESA QUE SE QUIERA ELIMINAR";
     cin >> numeroEmpresa;
     indice = empresaArchivo.buscar(numeroEmpresa);
     if(indice != -1) {
         Empresa empresa = empresaArchivo.leer(indice);
         bool eliminar;
         mostrar(empresa);
-        cout << "Esta seguro que quiere eliminar la empresa? 1-SI 0-NO: ";
+        cout << "¿ESTA SEGURO QUE DESEA ELIMINAR LA EMPRESA? 1- SI || 0- NO ";
         cin >> eliminar;
         if(eliminar) {
             if(empresaArchivo.eliminar(numeroEmpresa)) {
-                cout << "La empresa se elimino correctamente!"<<endl;
+                cout << "LA EMPRESA SE ELIMINO CORRECTAMENTE"<<endl;
             } else {
-                cout << "La empresa no se pudo eliminar..." << endl;
+                cout << "NO SE PUDO ELIMINAR LA EMPRESA" << endl;
             }
         } else {
-            cout << "La empresa no se elimino. " << endl;
+            cout << "LA OPERACION FUE CANCELADA" << endl;
         }
     } else {
-        cout << "La empresa no existe..." << endl;
+        cout << "EL NUMERO DE EMPRESA INGRESADO NO EXISTE" << endl;
     }
 }
 
+/// MENU EMPRESAS
 void EmpresaManager::menu() {
     int opcion;
     do {
-        system("cls"); /// borar la pantalla
+        system("cls");
         cout << "--------- MENU EMPRESAS -------" << endl;
         cout << "-------------------------------" << endl;
         cout << "1- CARGAR EMPRESA  " << endl;
@@ -155,9 +156,9 @@ void EmpresaManager::menu() {
         cout << "6- REALIZAR COPIA DE SEGURIDAD" << endl;
         cout << "7- RESTAURAR COPIA DE SEGURIDAD" << endl;
         cout << "-------------------------------" << endl;
-        cout << "0- SALIR " << endl;
+        cout << "0- VOLVER AL MENU PRINCIPAL " << endl;
         cout << "-------------------------------" << endl;
-        cout << "INGRESE LA OPCION: " << endl;
+        cout << "INGRESE LA OPCION: ";
         cin >> opcion;
         switch(opcion) {
         case 1:
@@ -184,8 +185,12 @@ void EmpresaManager::menu() {
             system("cls");
             restaurarCopiaSeguridad();
             break;
+        case 0:
+            return;
+        default:
+            system("cls");
+            cout<< "OPCION INVALIDA, INGRESE NUEVAMENTE"<<endl;
         }
         system("pause");
-
     } while(opcion != 0);
 }

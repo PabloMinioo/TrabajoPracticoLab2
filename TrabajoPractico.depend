@@ -6,16 +6,18 @@
 
 1714948509 d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\appmenu.h
 
-1714954848 source:d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\empresa.cpp
+1715010790 source:d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\empresa.cpp
 	<string>
 	<cstring>
 	"Empresa.h"
 
-1714954649 source:d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\main.cpp
+1715168441 source:d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\main.cpp
 	<iostream>
+	"AppManager.h"
 	"EmpresaManager.h"
+	"MunicipioManager.h"
 
-1714951796 source:d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\archivo.cpp
+1715010865 source:d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\archivo.cpp
 	"Archivo.h"
 
 1714951626 d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\archivo.h
@@ -25,7 +27,7 @@
 1714953449 source:d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\empresaarchivo.cpp
 	"EmpresaArchivo.h"
 
-1714953753 d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\empresaarchivo.h
+1715010865 d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\empresaarchivo.h
 	<string>
 	"Empresa.h"
 	"Archivo.h"
@@ -36,4 +38,60 @@
 1714954787 d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\empresamanager.h
 	"Empresa.h"
 	"EmpresaArchivo.h"
+
+1715169538 source:d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\appmanager.cpp
+	<string>
+	<iostream>
+	<cstring>
+	"MunicipioArchivo.h"
+	"AppManager.h"
+
+1715126587 d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\municipioarchivo.h
+	<string>
+	"Municipio.h"
+	"Archivo.h"
+
+1715167915 d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\municipio.h
+	<string>
+
+1715168747 d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\appmanager.h
+	"EmpresaManager.h"
+	"MunicipioManager.h"
+
+1715126881 d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\municipiomanager.h
+	"Municipio.h"
+	"MunicipioArchivo.h"
+
+1715169500 source:d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\empresamanager.cpp
+	<string>
+	<iostream>
+	"EmpresaManager.h"
+
+1715123937 source:d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\fecha.cpp
+	"Fecha.h"
+	<ctime>
+	<iostream>
+
+1715123937 d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\fecha.h
+	<ctime>
+
+1715126227 source:d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\municipio.cpp
+	<string>
+	<cstring>
+	"Municipio.h"
+
+1715126582 source:d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\municipioarchivo.cpp
+	<iostream>
+	"MunicipioArchivo.h"
+
+1715169500 source:d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\municipiomanager.cpp
+	<iostream>
+	"MunicipioManager.h"
+
+1715168697 source:d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\reportes.cpp
+	<string>
+	<iostream>
+	<cstring>
+	"MunicipioArchivo.h"
+	"AppManager.h"
 

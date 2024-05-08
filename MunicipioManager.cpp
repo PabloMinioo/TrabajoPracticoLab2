@@ -35,8 +35,7 @@ void MunicipioManager::cargarMunicipio() {
     municipio = crearMunicipio();
     if(archivoMunicipio.guardar(municipio)) {
         cout<< "EL MUNICIPIO FUE CARGADO CON EXITO."<<endl;
-    }
-    else {
+    } else {
         cout<< "ERROR. EL MUNICIPIO NO FUE CARGADO"<<endl;
     }
 }
@@ -48,11 +47,10 @@ void MunicipioManager::buscarMunicipio() {
     cout<< "INGRESE NUMERO DE MUNICIPIO: "<<endl;
     cin>> numMunicipio;
     index = archivoMunicipio.buscar(numMunicipio);
-   if(index >= 0){
+    if(index >= 0) {
         municipio = archivoMunicipio.leer(index);
         mostrar(municipio);
-    }
-    else{
+    } else {
         cout << "NO SE ENCUENTRA EL MUNICIPIO" << endl;
     }
 }
@@ -64,15 +62,14 @@ void MunicipioManager::modificarCantHabitantes() {
     cout<< "INGRESE MUNICIPIO A MODIFICAR: "<<endl;
     cin>>numMunicipio;
     index = archivoMunicipio.buscar(numMunicipio);
-    if(index >= 0){
+    if(index >= 0) {
         municipio = archivoMunicipio.leer(index);
         cout<< "INGRESE CANTIDAD DE HABITANTES NUEVA: "<<endl;
         cin>>cantHabitantes;
         municipio.setCantHabitantes(cantHabitantes);
         archivoMunicipio.modificar(municipio, index);
         mostrar(municipio);
-    }
-    else{
+    } else {
         cout << "NO SE ENCUENTRA EL MUNICIPIO" << endl;
     }
 }
@@ -88,7 +85,7 @@ void MunicipioManager::eliminarMunicipio() {
 
 // LISTA TODOS LOS REGISTROS DEL ARCHIVO
 void MunicipioManager::listarMunicipios() {
-     Municipio municipio;
+    Municipio municipio;
     int cantidadMuncipios;
     cantidadMuncipios = archivoMunicipio.getCantidadMunicipios();
     for(int i=0; i<cantidadMuncipios; i++) {
@@ -102,17 +99,15 @@ void MunicipioManager::listarMunicipios() {
 // CREA LA COPIA DE SEGURIDAD
 void MunicipioManager::crearCopiaSeguridad() {
     bool hacerCopia;
-    cout<< "DESEA CREAR LA COPIA DE SEGURIDAD? 1-SI 0-NO."<<endl;
+    cout<< "¿DESEA CREAR LA COPIA DE SEGURIDAD? 1- SI || 0- NO."<<endl;
     cin>> hacerCopia;
     if(hacerCopia) {
         if(archivoMunicipio.copiaSeguridad("municipios.bkp")) {
-             cout<< "LA COPIA SE CARGO CON EXITO."<<endl;
-        }
-        else {
+            cout<< "LA COPIA SE CARGO CON EXITO."<<endl;
+        } else {
             cout<< "LA COPIA NO PUDO SER CARGADA."<<endl;
         }
-    }
-    else {
+    } else {
         cout<< "LA COPIA NO PUDO SER CARGADA."<<endl;
     }
 }
@@ -124,13 +119,11 @@ void MunicipioManager::restaurarCopiaSeguridad() {
     cin>> hacerCopia;
     if(hacerCopia) {
         if(archivoMunicipio.restaurarCopiaSeguridad("municipios.bkp")) {
-             cout<< "LA COPIA SE CARGO CON EXITO."<<endl;
-        }
-        else {
+            cout<< "LA COPIA SE CARGO CON EXITO."<<endl;
+        } else {
             cout<< "LA COPIA NO PUDO SER CARGADA."<<endl;
         }
-    }
-    else {
+    } else {
         cout<< "LA COPIA NO PUDO SER CARGADA."<<endl;
     }
 }
@@ -139,61 +132,59 @@ void MunicipioManager::restaurarCopiaSeguridad() {
 void MunicipioManager::menu() {
     int opcion;
     do {
-    system("cls");
-    cout << "--------- MENU MUNICIPIOS -------" << endl;
-    cout << "-------------------------------" << endl;
-    cout<< "1- CARGAR MUNICIPIO."<<endl;
-    cout<< "2- BUSCAR MUNICIPIO"<<endl;
-    cout<< "3- MODIFICAR CANTIDAD DE HABITANTES."<<endl;
-    cout<< "4- ELIMINAR MUNICIPIO."<<endl;
-    cout<< "5- LISTAR MUNICIPIOS."<<endl;
-    cout<< "6- CREAR COPIA DE SEGURIDAD."<<endl;
-    cout<< "7- RESTAURAR COPIA DE SEGURIDAD."<<endl;
+        system("cls");
+        cout << "--------- MENU MUNICIPIOS -------" << endl;
+        cout << "-------------------------------" << endl;
+        cout << "1- CARGAR MUNICIPIO"<<endl;
+        cout << "2- BUSCAR MUNICIPIO POR NUMERO EMPRESA"<<endl;
+        cout << "3- MODIFICAR CANTIDAD DE HABITANTES."<<endl;
+        cout << "4- ELIMINAR MUNICIPIO"<<endl;
+        cout << "5- LISTAR MUNICIPIOS"<<endl;
+        cout << "6- CREAR COPIA DE SEGURIDAD"<<endl;
+        cout << "7- RESTAURAR COPIA DE SEGURIDAD"<<endl;
+        cout << "-------------------------------" << endl;
+        cout << "0- VOLVER AL MENU PRINCIPAL " << endl;
+        cout << "-------------------------------" << endl;
+        cout << "INGRESE LA OPCION: ";
+        cin >> opcion;
+        switch(opcion) {
+        case 1:
+            system("cls");
+            cargarMunicipio();
+            break;
+        case 2:
+            system("cls");
+            buscarMunicipio();
+            break;
+        case 3:
+            system("cls");
+            modificarCantHabitantes();
+            break;
+        case 4:
+            system("cls");
+            eliminarMunicipio();
+            break;
+        case 5:
+            system("cls");
+            listarMunicipios();
+            break;
+        case 6:
+            system("cls");
+            crearCopiaSeguridad();
+            break;
+        case 7:
+            restaurarCopiaSeguridad();
+            system("cls");
+            break;
+        case 0:
+            return;
+        default:
+            system("cls");
+            cout<< "OPCION INVALIDA, INGRESE NUEVAMENTE"<<endl;
+        }
+        system("pause>nul");
 
-    cout<< "SELECCIONE UNA OPCION: "<<endl;
-    cin>>opcion;
-
-    switch(opcion) {
-    case 1:
-        system("cls");
-        cargarMunicipio();
-        break;
-    case 2:
-        system("cls");
-        buscarMunicipio();
-        break;
-    case 3:
-        system("cls");
-        modificarCantHabitantes();
-        break;
-    case 4:
-        system("cls");
-        eliminarMunicipio();
-        break;
-    case 5:
-        system("cls");
-        listarMunicipios();
-        break;
-    case 6:
-        system("cls");
-        crearCopiaSeguridad();
-        break;
-    case 7:
-        restaurarCopiaSeguridad();
-        system("cls");
-        break;
-    case 0:
-        system("cls");
-        cout<< "GRACIAS POR USARME."<<endl;
-        break;
-    default:
-        system("cls");
-        cout<< "OPCION INVALIDA, INGRESE NUEVAMENTE."<<endl;
-    }
-    system("pause>nul");
-
-    }
-    while(opcion != 0);
+    } while(opcion != 0);
 
 
 
