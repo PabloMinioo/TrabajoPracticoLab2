@@ -47,6 +47,18 @@
 		</Unit>
 		<Unit filename="Fecha.cpp" />
 		<Unit filename="Fecha.h" />
+		<Unit filename="Municipio.cpp" />
+		<Unit filename="Municipio.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="MunicipioArchivo.cpp" />
+		<Unit filename="MunicipioArchivo.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="MunicipioManager.cpp" />
+		<Unit filename="MunicipioManager.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="appMenu.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
