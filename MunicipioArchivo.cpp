@@ -57,6 +57,19 @@ Municipio MunicipioArchivo::leer(int index) {
     return municipio;
 }
 
+// RECIBE EL NOMBRE DE UN ARCHIVO Y LO MUESTRA (BAKC UP)
+Municipio MunicipioArchivo::leerCopiaSeguridad(int index) {
+    Municipio municipioBackUp;
+    FILE *pFile = fopen("municipio.bkp", "rb");
+    if (pFile == nullptr) {
+        return municipioBackUp;
+    }
+    fseek(pFile, index * sizeof(Municipio), SEEK_SET);
+    fread(&municipioBackUp, sizeof(Municipio), 1, pFile);
+    fclose(pFile);
+    return municipioBackUp;
+}
+
 // RECIBE UN OBJETO MUNICIPIO Y UNA POSICION, Y MODIFICA LOS DATOS
 bool MunicipioArchivo::modificar(Municipio municipio, int index) {
     int modifico;

@@ -28,7 +28,7 @@ void ConfiguracionManager::crearCopiaSeguridadMunicipios() {
     cout << "REALIZAR COPIA DE SEGURIDAD? 1- SI || 0- NO ";
     cin >> hacerCopia;
     if (hacerCopia) {
-        if (empresaArchivo.copiaSeguridad("municipio.bkp")) {
+        if (municipioArchivo.copiaSeguridad("municipio.bkp")) {
             cout << "LA COPIA DE SEGURIDAD SE REALIZO CON EXITO" << endl;
         } else {
             cout << "NO SE PUDO REALIZAR LA COPIA DE SEGURIDAD" << endl;
@@ -60,7 +60,7 @@ void ConfiguracionManager::restaurarCopiaSeguridadMunicipios() {
     cout << "RESTAURAR LA COPIA DE SEGURIDAD? 1- SI || 0- NO ";
     cin >> hacerCopia;
     if(hacerCopia) {
-        if(empresaArchivo.restaurarCopiaSeguridad("municipio.bkp")) {
+        if(municipioArchivo.restaurarCopiaSeguridad("municipio.bkp")) {
             cout << "LA COPIA DE SEGURIDAD SE RESTUARO CON EXITO" << endl;
         } else {
             cout << "NO SE PUDO RESTAURAR LA COPIA DE SEGURIDAD"<< endl;
@@ -69,6 +69,7 @@ void ConfiguracionManager::restaurarCopiaSeguridadMunicipios() {
         cout << "LA OPERACION FUE CANCELADA" << endl;
     }
 }
+
 
 // MENU CONFIGURACION
 void ConfiguracionManager::menu() {

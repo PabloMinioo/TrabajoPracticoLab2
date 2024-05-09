@@ -1,6 +1,7 @@
 #include <string>
 #include <iostream>
 #include "EmpresaManager.h"
+#include "ConfiguracionManager.h"
 using namespace std;
 
 /// METODOS CLASE EMPRESA
@@ -9,11 +10,10 @@ Empresa EmpresaManager::crearEmpresa() {
     int numeroEmpresa, cantidadEmpleados, categoria, numeroMunicipio;
     float facturacionAnual;
     string nombreEmpresa;
-//  Fecha fechaCreacion;
+    // VALIDACION PARA NO REPETIR NUMERO DE EMPRESA
     while(true) {
         cout << "INGRESE NUMERO DE EMPRESA: ";
         cin >> numeroEmpresa;
-        // VALIDACION PARA NO REPETIR NUMERO DE EMPRESA
         if(empresaArchivo.isExist(numeroEmpresa)) {
             cout << "YA EXISTE EL NUMERO DE EMPRESA" << endl;
         } else {
@@ -23,14 +23,24 @@ Empresa EmpresaManager::crearEmpresa() {
     cin.ignore();
     cout << "INGRESE NOMBRE DE LA EMPRESA: ";
     getline(cin, nombreEmpresa);
-    cout << "INGRESE CANTIDAD DE EMPLEADOS: ";
-    cin >> cantidadEmpleados;
+    // VALIDACION CANTIDAD DE EMPLEADOS POSITIVO
+    while(true) {
+        cout << "INGRESE CANTIDAD DE EMPLEADOS: ";
+        cin >> cantidadEmpleados;
+        if(cantidadEmpleados <= 0) {
+            cout << "CANTIDAD DE EMPLEADOS INVALIDO" << endl;
+        } else {
+            break;
+        }
+    }
+    // VALIDACION CATEGORIA ENTRE 1 Y 80
     cout << "INGRESE CATEGORIA: ";
     cin >> categoria;
     cout << "INGRESE NUMERO DE MUNICIPIO: ";
     cin >> numeroMunicipio;
     cout << "INGRESE FACTURACION ANUAL: ";
     cin >> facturacionAnual;
+//  Fecha fechaCreacion;
     return Empresa(numeroEmpresa, nombreEmpresa, cantidadEmpleados, categoria, numeroMunicipio, facturacionAnual, true);
 }
 
@@ -93,41 +103,7 @@ void EmpresaManager::listarCopiaSeguridad() {
         Empresa empresa = backupArchivo.leerCopiaSeguridad(i);
         cout << "*****************" << endl;
         mostrar(empresa);
-
         cout << "*****************" << endl;
-    }
-}
-/*
-// CREA LA COPIA DE SEGURIDAD
-void EmpresaManager::realizarCopiaSeguridad() {
-    bool hacerCopia;
-    cout << "REALIZAR COPIA DE SEGURIDAD? 1- SI || 2- NO ";
-    cin >> hacerCopia;
-    if(hacerCopia) {
-        if(empresaArchivo.copiaSeguridad("empresa.bkp")) {
-            cout << "LA COPIA DE SEGURIDAD SE REALIZO CON EXITO" << endl;
-        } else {
-            cout << "NO SE PUDO REALIZAR LA COPIA DE SEGURIDAD"<< endl;
-        }
-    } else {
-        cout << "LA OPERACION FUE CANCELADA" << endl;
-    }
-}
-*/
-
-// ESCRIBE LOS REGISTROS DEL ARCHIVO BACK UP EN EL ARCHIVO ORIGINAL
-void EmpresaManager::restaurarCopiaSeguridad() {
-    bool hacerCopia;
-    cout << "RESTAURAR LA COPIA DE SEGURIDAD? 1- SI || 0- NO ";
-    cin >> hacerCopia;
-    if(hacerCopia) {
-        if(empresaArchivo.restaurarCopiaSeguridad("empresa.bkp")) {
-            cout << "LA COPIA DE SEGURIDAD SE RESTUARO CON EXITO" << endl;
-        } else {
-            cout << "NO SE PUDO RESTAURAR LA COPIA DE SEGURIDAD"<< endl;
-        }
-    } else {
-        cout << "LA OPERACION FUE CANCELADA" << endl;
     }
 }
 
@@ -167,9 +143,8 @@ void EmpresaManager::menu() {
         cout << "1- CARGAR EMPRESA  " << endl;
         cout << "2- BUSCAR EMPRESA POR NUMERO  " << endl;
         cout << "3- LISTAR TODAS LAS EMPRESAS" << endl;
-        cout << "5- ELIMINAR EMPRESA LOGICA " << endl;
-        cout << "6- LISTAR COPIA SEGURIDAD" << endl;
-        cout << "7- RESTAURAR COPIA DE SEGURIDAD" << endl;
+        cout << "4- ELIMINAR EMPRESA LOGICA " << endl;
+        cout << "5- LISTAR COPIA SEGURIDAD" << endl;
         cout << "-------------------------------" << endl;
         cout << "0- VOLVER AL MENU PRINCIPAL " << endl;
         cout << "-------------------------------" << endl;
@@ -188,17 +163,13 @@ void EmpresaManager::menu() {
             system("cls");
             listarEmpresas();
             break;
-        case 5:
+        case 4:
             system("cls");
             eliminarEmpresas();
             break;
-        case 6:
+        case 5:
             system("cls");
             listarCopiaSeguridad();
-            break;
-        case 7:
-            system("cls");
-            restaurarCopiaSeguridad();
             break;
         case 0:
             return;

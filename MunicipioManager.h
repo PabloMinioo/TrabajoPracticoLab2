@@ -4,18 +4,17 @@
 
 
 class MunicipioManager {
-    public:
-    Municipio crearMunicipio();
-    void mostrar(Municipio municipio);
-    void menu();
-
-    private:
+private:
     void cargarMunicipio();
     void buscarMunicipio();
     void modificarCantHabitantes();
     void eliminarMunicipio();
     void listarMunicipios();
-    void crearCopiaSeguridad();
-    void restaurarCopiaSeguridad();
+    void listarCopiaSeguridad();
     MunicipioArchivo archivoMunicipio;
+public:
+    Municipio crearMunicipio();
+    void mostrar(Municipio municipio);
+    void menu();
+
 };

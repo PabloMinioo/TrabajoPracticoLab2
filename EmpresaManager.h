@@ -11,8 +11,6 @@ private:
     void listarEmpresas();
     void listarCopiaSeguridad();
     void eliminarEmpresas();
-    void realizarCopiaSeguridad();
-    void restaurarCopiaSeguridad();
     EmpresaArchivo empresaArchivo;
 public:
     void menu();

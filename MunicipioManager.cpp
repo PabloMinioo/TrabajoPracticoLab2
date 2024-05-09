@@ -1,5 +1,6 @@
 #include <iostream>
 #include "MunicipioManager.h"
+#include "ConfiguracionManager.h"
 
 using namespace std;
 
@@ -8,25 +9,27 @@ Municipio MunicipioManager::crearMunicipio() {
     int numeroMunicipio, seccionPerteneciente, cantHabitantes;
     string nombre;
     bool estado;
-    cout<< "INGRESE NUMERO DE MUNICIPIO: "<<endl;
+    cout<< "INGRESE NUMERO DE MUNICIPIO: ";
     cin>> numeroMunicipio;
     cin.ignore();
-    cout<< "INGRESE NOMBRE: "<<endl;
+    cout<< "INGRESE NOMBRE DE MUNICIPIO: ";
     getline(cin, nombre);
-    cout<< "INGRESE SECCION PERTENECIENTE: "<<endl;
+    cout<< "INGRESE SECCION PERTENECIENTE: ";
     cin>> seccionPerteneciente;
-    cout<< "INGRESE CANTIDAD DE HABITANTES: "<<endl;
+    cout<< "INGRESE CANTIDAD DE HABITANTES: ";
     cin>> cantHabitantes;
     return Municipio(numeroMunicipio, nombre, seccionPerteneciente, cantHabitantes, estado = true);
 }
 
 // MUESTRA EL MUNICIPIO
 void MunicipioManager::mostrar(Municipio municipio) {
+    if (municipio.getEstado()){
     cout<< "NUMERO DE MUNICIPIO: "<< municipio.getNumeroMunicipio()<<endl;
-    cout<< "NOMBRE: "<< municipio.getNombre()<<endl;
+    cout<< "NOMBRE DE MUNICIPIO: "<< municipio.getNombre()<<endl;
     cout<< "SECCION PERTENECIENTE: "<< municipio.getSeccionPerteneciente()<<endl;
     cout<< "CANTIDAD DE HABITANTES: "<< municipio.getCantHabitantes()<<endl;
     cout<< "ESTADO: "<< (municipio.getEstado() ? "DISPONIBLE" : "NO DISPONIBLE")<<endl;
+    }
 }
 
 // GUARDA EL REGISTRO EN EL ARCHIVO
@@ -34,9 +37,9 @@ void MunicipioManager::cargarMunicipio() {
     Municipio municipio;
     municipio = crearMunicipio();
     if(archivoMunicipio.guardar(municipio)) {
-        cout<< "EL MUNICIPIO FUE CARGADO CON EXITO."<<endl;
+        cout << "EL MUNICIPIO FUE CARGADO CON EXITO"<<endl;
     } else {
-        cout<< "ERROR. EL MUNICIPIO NO FUE CARGADO"<<endl;
+        cout << "EL MUNICIPIO NO SE PUDO GUARDAR"<<endl;
     }
 }
 
@@ -70,17 +73,34 @@ void MunicipioManager::modificarCantHabitantes() {
         archivoMunicipio.modificar(municipio, index);
         mostrar(municipio);
     } else {
-        cout << "NO SE ENCUENTRA EL MUNICIPIO" << endl;
+        cout << "EL NUMERO DE MUNICIPIO INGRESADO NO EXISTE" << endl;
     }
 }
 
 // RECIBE UNA POSICION DEL REGISTRO Y REALIZA UNA BAJA LOGICA
 void MunicipioManager::eliminarMunicipio() {
-    Municipio municipio;
-    int numMunicipio;
-    cout<< "INGRESE NUMERO DE MUNICIPIO A ELIMINAR: "<<endl;
-    cin>>numMunicipio;
-    archivoMunicipio.eliminar(numMunicipio);
+    int numeroMunicipio, indice;
+    cout << "INGRESE NUMERO DE MUNICIPIO A ELIMINAR: "<< endl;
+    cin >> numeroMunicipio;
+    indice = archivoMunicipio.buscar(numeroMunicipio);
+    if (indice != -1){
+        Municipio municipio = archivoMunicipio.leer(indice);
+        bool eliminar;
+        mostrar(municipio);
+        cout << "ESTA SEGURO QUE DESEA ELIMINAR EL MUNICIPIO? 1- SI || 0- NO ";
+        cin >> eliminar;
+        if(eliminar) {
+            if(archivoMunicipio.eliminar(numeroMunicipio)) {
+                cout << "EL MUNICIPIO SE ELIMINO CORRECTAMENTE"<<endl;
+            } else {
+                cout << "NO SE PUDO ELIMINAR EL MUNICIPIO" << endl;
+            }
+        } else {
+            cout << "LA OPERACION FUE CANCELADA" << endl;
+        }
+    } else {
+        cout << "EL NUMERO DE MUNICIPIO INGRESADO NO EXISTE" << endl;
+    }
 }
 
 // LISTA TODOS LOS REGISTROS DEL ARCHIVO
@@ -96,52 +116,32 @@ void MunicipioManager::listarMunicipios() {
     }
 }
 
-// CREA LA COPIA DE SEGURIDAD
-void MunicipioManager::crearCopiaSeguridad() {
-    bool hacerCopia;
-    cout<< "¿DESEA CREAR LA COPIA DE SEGURIDAD? 1- SI || 0- NO."<<endl;
-    cin>> hacerCopia;
-    if(hacerCopia) {
-        if(archivoMunicipio.copiaSeguridad("municipios.bkp")) {
-            cout<< "LA COPIA SE CARGO CON EXITO."<<endl;
-        } else {
-            cout<< "LA COPIA NO PUDO SER CARGADA."<<endl;
-        }
-    } else {
-        cout<< "LA COPIA NO PUDO SER CARGADA."<<endl;
+// LISTA TODAS LAS EMPRESAS DEL ARCHIVO BACK UP
+void MunicipioManager::listarCopiaSeguridad() {
+    MunicipioArchivo backupArchivo("municipio.bkp");
+    int cantidadMunicipio = backupArchivo.getCantidadMunicipios();
+    cout << "LISTADO DE EMPRESAS DEL BACK UP"<< endl;
+    for (int i = 0; i < cantidadMunicipio; i++) {
+        Municipio municipio = backupArchivo.leerCopiaSeguridad(i);
+        cout << "*****************" << endl;
+        mostrar(municipio);
+        cout << "*****************" << endl;
     }
 }
 
-// ESCRIBE LOS REGISTROS DEL ARCHIVO BACK UP EN EL ARCHIVO ORIGINAL
-void MunicipioManager::restaurarCopiaSeguridad() {
-    bool hacerCopia;
-    cout<< "DESEA CREAR LA COPIA DE SEGURIDAD? 1-SI 0-NO."<<endl;
-    cin>> hacerCopia;
-    if(hacerCopia) {
-        if(archivoMunicipio.restaurarCopiaSeguridad("municipios.bkp")) {
-            cout<< "LA COPIA SE CARGO CON EXITO."<<endl;
-        } else {
-            cout<< "LA COPIA NO PUDO SER CARGADA."<<endl;
-        }
-    } else {
-        cout<< "LA COPIA NO PUDO SER CARGADA."<<endl;
-    }
-}
-
-
+// MENU MUNICIPIO
 void MunicipioManager::menu() {
     int opcion;
     do {
         system("cls");
         cout << "--------- MENU MUNICIPIOS -------" << endl;
         cout << "-------------------------------" << endl;
-        cout << "1- CARGAR MUNICIPIO"<<endl;
-        cout << "2- BUSCAR MUNICIPIO POR NUMERO EMPRESA"<<endl;
-        cout << "3- MODIFICAR CANTIDAD DE HABITANTES."<<endl;
-        cout << "4- ELIMINAR MUNICIPIO"<<endl;
-        cout << "5- LISTAR MUNICIPIOS"<<endl;
-        cout << "6- CREAR COPIA DE SEGURIDAD"<<endl;
-        cout << "7- RESTAURAR COPIA DE SEGURIDAD"<<endl;
+        cout << "1- AGREGAR MUNICIPIO"<<endl;
+        cout << "2- LISTAR MUNICIPIO POR NUMERO"<<endl;
+        cout << "3- LISTAR TODAS LOS MUNICIPIOS"<<endl;
+        cout << "4- MODIFICAR CANTIDAD DE HABITANTES"<<endl;
+        cout << "5- ELIMINAR REGISTRO"<<endl;
+        cout << "6- LISTAR COPIA DE SEGURIDAD"<<endl;
         cout << "-------------------------------" << endl;
         cout << "0- VOLVER AL MENU PRINCIPAL " << endl;
         cout << "-------------------------------" << endl;
@@ -158,23 +158,19 @@ void MunicipioManager::menu() {
             break;
         case 3:
             system("cls");
-            modificarCantHabitantes();
+            listarMunicipios();
             break;
         case 4:
             system("cls");
-            eliminarMunicipio();
+            modificarCantHabitantes();
             break;
         case 5:
             system("cls");
-            listarMunicipios();
+            eliminarMunicipio();
             break;
         case 6:
             system("cls");
-            crearCopiaSeguridad();
-            break;
-        case 7:
-            restaurarCopiaSeguridad();
-            system("cls");
+            listarCopiaSeguridad();
             break;
         case 0:
             return;
@@ -182,7 +178,7 @@ void MunicipioManager::menu() {
             system("cls");
             cout<< "OPCION INVALIDA, INGRESE NUEVAMENTE"<<endl;
         }
-        system("pause>nul");
+        system("pause");
 
     } while(opcion != 0);
 

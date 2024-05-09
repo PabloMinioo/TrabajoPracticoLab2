@@ -93,6 +93,7 @@ Empresa EmpresaArchivo::leerCopiaSeguridad(int index) {
     return empresaBackUp;
 }
 
+
 // RECIBE UN NUMERO DE EMPRESA Y VALIDA SI EXISTE EL NUMERO DE EMPRESA
 bool EmpresaArchivo::isExist(int numeroEmpresa) {
     return buscar(numeroEmpresa) != -1;
