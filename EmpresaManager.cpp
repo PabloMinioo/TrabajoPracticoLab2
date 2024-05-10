@@ -28,14 +28,21 @@ Empresa EmpresaManager::crearEmpresa() {
         cout << "INGRESE CANTIDAD DE EMPLEADOS: ";
         cin >> cantidadEmpleados;
         if(cantidadEmpleados <= 0) {
-            cout << "CANTIDAD DE EMPLEADOS INVALIDO" << endl;
+            cout << "CANTIDAD DE EMPLEADOS NO VALIDOS" << endl;
         } else {
             break;
         }
     }
     // VALIDACION CATEGORIA ENTRE 1 Y 80
-    cout << "INGRESE CATEGORIA: ";
-    cin >> categoria;
+    while(true) {
+        cout << "INGRESE CATEGORIA: ";
+        cin >> categoria;
+        if(categoria < 1 || categoria > 80) {
+            cout << "CATEGORIA NO VALIDA" << endl;
+        } else {
+            break;
+        }
+    }
     cout << "INGRESE NUMERO DE MUNICIPIO: ";
     cin >> numeroMunicipio;
     cout << "INGRESE FACTURACION ANUAL: ";

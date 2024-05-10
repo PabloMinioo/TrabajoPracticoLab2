@@ -9,8 +9,9 @@ Municipio MunicipioManager::crearMunicipio() {
     int numeroMunicipio, seccionPerteneciente, cantHabitantes;
     string nombre;
     bool estado;
-    cout<< "INGRESE NUMERO DE MUNICIPIO: ";
-    cin>> numeroMunicipio;
+    // NUMERO DE MUNICIPIO AUTOMATIZADO
+    numeroMunicipio = archivoMunicipio.getCantidadMunicipios() + 1;
+    cout << "NUMERO MUNIICPIO: " << numeroMunicipio << endl;
     cin.ignore();
     cout<< "INGRESE NOMBRE DE MUNICIPIO: ";
     getline(cin, nombre);
@@ -23,12 +24,12 @@ Municipio MunicipioManager::crearMunicipio() {
 
 // MUESTRA EL MUNICIPIO
 void MunicipioManager::mostrar(Municipio municipio) {
-    if (municipio.getEstado()){
-    cout<< "NUMERO DE MUNICIPIO: "<< municipio.getNumeroMunicipio()<<endl;
-    cout<< "NOMBRE DE MUNICIPIO: "<< municipio.getNombre()<<endl;
-    cout<< "SECCION PERTENECIENTE: "<< municipio.getSeccionPerteneciente()<<endl;
-    cout<< "CANTIDAD DE HABITANTES: "<< municipio.getCantHabitantes()<<endl;
-    cout<< "ESTADO: "<< (municipio.getEstado() ? "DISPONIBLE" : "NO DISPONIBLE")<<endl;
+    if (municipio.getEstado()) {
+        cout<< "NUMERO DE MUNICIPIO: "<< municipio.getNumeroMunicipio()<<endl;
+        cout<< "NOMBRE DE MUNICIPIO: "<< municipio.getNombre()<<endl;
+        cout<< "SECCION PERTENECIENTE: "<< municipio.getSeccionPerteneciente()<<endl;
+        cout<< "CANTIDAD DE HABITANTES: "<< municipio.getCantHabitantes()<<endl;
+        cout<< "ESTADO: "<< (municipio.getEstado() ? "DISPONIBLE" : "NO DISPONIBLE")<<endl;
     }
 }
 
@@ -36,6 +37,22 @@ void MunicipioManager::mostrar(Municipio municipio) {
 void MunicipioManager::cargarMunicipio() {
     Municipio municipio;
     municipio = crearMunicipio();
+    // VALIDACION CANTIDAD DE MUNICIPIOS = 135
+    int cantidadRegistro = archivoMunicipio.getCantidadMunicipios();
+    if (cantidadRegistro == 135) {
+        cout << "NO SE GUARDARA EL REGISTRO, YA QUE SE SUPERO DEL LIMITE DE 135 MUNICIPIOS" << endl;
+        return;
+    }
+    // VALIDACION SECCION PERTENECIENTE
+    if (municipio.getSeccionPerteneciente() < 1 || municipio.getSeccionPerteneciente() > 9){
+        cout << "SECCION NO VALIDA. INGRESE UN NUMERO DE SECCION DEL 1 AL 9" << endl;
+        return;
+    }
+    // VALIDACION CANTIDAD HABITANTES
+    if (municipio.getCantHabitantes() <= 0){
+        cout << "CANTIDAD DE HABITANTES NO VALIDA. INGRESE UNA CANTIDAD DE HABITANTES POSITIVA" << endl;
+        return;
+    }
     if(archivoMunicipio.guardar(municipio)) {
         cout << "EL MUNICIPIO FUE CARGADO CON EXITO"<<endl;
     } else {
@@ -62,12 +79,12 @@ void MunicipioManager::buscarMunicipio() {
 void MunicipioManager::modificarCantHabitantes() {
     Municipio municipio;
     int cantHabitantes, numMunicipio, index;
-    cout<< "INGRESE MUNICIPIO A MODIFICAR: "<<endl;
+    cout<< "INGRESE MUNICIPIO A MODIFICAR: ";
     cin>>numMunicipio;
     index = archivoMunicipio.buscar(numMunicipio);
     if(index >= 0) {
         municipio = archivoMunicipio.leer(index);
-        cout<< "INGRESE CANTIDAD DE HABITANTES NUEVA: "<<endl;
+        cout<< "INGRESE CANTIDAD DE HABITANTES NUEVA: ";
         cin>>cantHabitantes;
         municipio.setCantHabitantes(cantHabitantes);
         archivoMunicipio.modificar(municipio, index);
@@ -83,7 +100,7 @@ void MunicipioManager::eliminarMunicipio() {
     cout << "INGRESE NUMERO DE MUNICIPIO A ELIMINAR: "<< endl;
     cin >> numeroMunicipio;
     indice = archivoMunicipio.buscar(numeroMunicipio);
-    if (indice != -1){
+    if (indice != -1) {
         Municipio municipio = archivoMunicipio.leer(indice);
         bool eliminar;
         mostrar(municipio);

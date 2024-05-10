@@ -63,7 +63,6 @@ int EmpresaArchivo::buscar(int numeroEmpresa) {
     if(empresa.getNumeroEmpresa() == numeroEmpresa) {
         return index;
     } else {
-        // cout posicion no existe
         return -1;
     }
 }
@@ -98,6 +97,7 @@ Empresa EmpresaArchivo::leerCopiaSeguridad(int index) {
 bool EmpresaArchivo::isExist(int numeroEmpresa) {
     return buscar(numeroEmpresa) != -1;
 }
+
 
 // RECIBE EL NOMBRE DE UN ARCHIVO Y CREA LA COPIA DE SEGURIDAD
 bool EmpresaArchivo::copiaSeguridad(string fileName){

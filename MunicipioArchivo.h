@@ -11,6 +11,7 @@ public:
     MunicipioArchivo(std::string filename);
     bool guardar(Municipio municipio);
     int buscar(int numMunicipio);
+    bool isExist(int numeroMunicipio);
     Municipio leer(int index);
     Municipio leerCopiaSeguridad(int index);
     bool modificar(Municipio municipio, int index);

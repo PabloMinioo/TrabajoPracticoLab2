@@ -24,12 +24,12 @@ bool MunicipioArchivo::guardar(Municipio municipio) {
     return guardo;
 }
 
-// RECIBE UN NUMERO DE MUNICIPIO Y DEVUELVE SU POSICION EN EL REGISTRO
+// RECIBE UN NUMERO DE MUNICIPIO Y DEVUELVE LA POSICION QUE OCUPA EN EL REGISTRO
 int MunicipioArchivo::buscar(int numMunicipio) {
-    Municipio municipio;
     int index = 0;
-    if(!abrir()) {
-        return false;
+    Municipio municipio;
+    if(abrir("rb+") == false) {
+        return -1;
     }
     while(fread(&municipio, sizeof(Municipio), 1, _pFile)) {
         if(municipio.getNumeroMunicipio() == numMunicipio) {
@@ -44,6 +44,12 @@ int MunicipioArchivo::buscar(int numMunicipio) {
         return -1;
     }
 }
+
+// RECIBE UN NUMERO DE MUNICIPIO Y VALIDA SI EXISTE EL NUMERO DE MUNICIPIO
+bool MunicipioArchivo::isExist(int numeroMunicipio) {
+    return buscar(numeroMunicipio) != -1;
+}
+
 
 // RECIBE UNA POSICION Y DEVUELVE EL REGISTRO DE DICHA POSICION
 Municipio MunicipioArchivo::leer(int index) {
