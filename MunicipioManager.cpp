@@ -37,26 +37,26 @@ void MunicipioManager::mostrar(Municipio municipio) {
 void MunicipioManager::cargarMunicipio() {
     Municipio municipio;
     municipio = crearMunicipio();
-    // VALIDACION CANTIDAD DE MUNICIPIOS = 135
+    // VALIDACION CANTIDAD DE MUNICIPIOS
     int cantidadRegistro = archivoMunicipio.getCantidadMunicipios();
-    if (cantidadRegistro == 135) {
-        cout << "NO SE GUARDARA EL REGISTRO, YA QUE SE SUPERO DEL LIMITE DE 135 MUNICIPIOS" << endl;
+    if (cantidadRegistro == 15) {
+        cout << endl << "EL MUNICIPIO NO SE PUDO GUARDAR. SE HA ALCANZADO LA CANTIDAD MAXIMA DE MUNICIPIOS" << endl;
         return;
     }
     // VALIDACION SECCION PERTENECIENTE
     if (municipio.getSeccionPerteneciente() < 1 || municipio.getSeccionPerteneciente() > 9){
-        cout << "SECCION NO VALIDA. INGRESE UN NUMERO DE SECCION DEL 1 AL 9" << endl;
+        cout << endl << "EL MUNICIPIO NO SE PUDO GUARDAR. SECCION PERTENECIENTE NO VALIDA" << endl;
         return;
     }
     // VALIDACION CANTIDAD HABITANTES
     if (municipio.getCantHabitantes() <= 0){
-        cout << "CANTIDAD DE HABITANTES NO VALIDA. INGRESE UNA CANTIDAD DE HABITANTES POSITIVA" << endl;
+        cout << endl << "EL MUNICIPIO NO SE PUDO GUARDAR. CANTIDAD DE HABITANTES NO VALIDA" << endl;
         return;
     }
     if(archivoMunicipio.guardar(municipio)) {
-        cout << "EL MUNICIPIO FUE CARGADO CON EXITO"<<endl;
+        cout << endl << "EL MUNICIPIO FUE CARGADO CON EXITO"<<endl;
     } else {
-        cout << "EL MUNICIPIO NO SE PUDO GUARDAR"<<endl;
+        cout << endl << "EL MUNICIPIO NO SE PUDO GUARDAR"<<endl;
     }
 }
 
@@ -127,24 +127,38 @@ void MunicipioManager::listarMunicipios() {
     cantidadMuncipios = archivoMunicipio.getCantidadMunicipios();
     for(int i=0; i<cantidadMuncipios; i++) {
         municipio = archivoMunicipio.leer(i);
-        cout<<"-------------------------"<<endl;
+        cout << "**********************" << endl;
         mostrar(municipio);
-        cout<<"-------------------------"<<endl;
+        cout << "**********************" << endl;
     }
 }
 
 // LISTA TODAS LAS EMPRESAS DEL ARCHIVO BACK UP
 void MunicipioManager::listarCopiaSeguridad() {
-    MunicipioArchivo backupArchivo("municipio.bkp");
+    MunicipioArchivo backupArchivo("municipios.bkp");
     int cantidadMunicipio = backupArchivo.getCantidadMunicipios();
     cout << "LISTADO DE EMPRESAS DEL BACK UP"<< endl;
     for (int i = 0; i < cantidadMunicipio; i++) {
         Municipio municipio = backupArchivo.leerCopiaSeguridad(i);
-        cout << "*****************" << endl;
+        cout << "**********************" << endl;
         mostrar(municipio);
-        cout << "*****************" << endl;
+        cout << "**********************" << endl;
     }
 }
+
+// LISTA TODAS LAS EMPRESAS DEL ARCHIVO DATOS DE INICIO
+void MunicipioManager::listarDatosInicio() {
+    MunicipioArchivo inicioArchivo("municipios_datos_inicio.init");
+    int cantidadMunicipio = inicioArchivo.getCantidadMunicipios();
+    cout << "LISTADO DE EMPRESAS DEL BACK UP"<< endl;
+    for (int i = 0; i < cantidadMunicipio; i++) {
+        Municipio municipio = inicioArchivo.leerDatosInicio(i);
+        cout << "**********************" << endl;
+        mostrar(municipio);
+        cout << "**********************" << endl;
+    }
+}
+
 
 // MENU MUNICIPIO
 void MunicipioManager::menu() {
@@ -188,6 +202,10 @@ void MunicipioManager::menu() {
         case 6:
             system("cls");
             listarCopiaSeguridad();
+            break;
+        case 7:
+            system("cls");
+            listarDatosInicio();
             break;
         case 0:
             return;

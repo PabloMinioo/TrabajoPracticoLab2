@@ -10,6 +10,7 @@ private:
     void modificarCantHabitantes();
     void eliminarMunicipio();
     void listarMunicipios();
+    void listarDatosInicio();
     void listarCopiaSeguridad();
     MunicipioArchivo archivoMunicipio;
 public:

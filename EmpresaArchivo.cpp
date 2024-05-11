@@ -82,7 +82,7 @@ Empresa EmpresaArchivo::leer(int index) {
 // RECIBE EL NOMBRE DE UN ARCHIVO Y LO MUESTRA (BAKC UP)
 Empresa EmpresaArchivo::leerCopiaSeguridad(int index) {
     Empresa empresaBackUp;
-    FILE *pFile = fopen("empresa.bkp", "rb");
+    FILE *pFile = fopen("empresas.bkp", "rb");
     if (pFile == nullptr) {
         return empresaBackUp;
     }
@@ -90,6 +90,19 @@ Empresa EmpresaArchivo::leerCopiaSeguridad(int index) {
     fread(&empresaBackUp, sizeof(Empresa), 1, pFile);
     fclose(pFile);
     return empresaBackUp;
+}
+
+// RECIBE EL NOMBRE DE UN ARCHIVO Y LO MUESTRA (DATOS INICIO)
+Empresa EmpresaArchivo::leerDatosInicio(int index) {
+    Empresa empresaDatosInicio;
+    FILE *pFile = fopen("empresas_datos_inicio.init", "rb");
+    if (pFile == nullptr) {
+        return empresaDatosInicio;
+    }
+    fseek(pFile, index * sizeof(Empresa), SEEK_SET);
+    fread(&empresaDatosInicio, sizeof(Empresa), 1, pFile);
+    fclose(pFile);
+    return empresaDatosInicio;
 }
 
 

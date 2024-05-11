@@ -1,6 +1,7 @@
 #pragma once
 #include "Empresa.h"
 #include "EmpresaArchivo.h"
+#include "MunicipioArchivo.h"
 
 class EmpresaManager{
 private:
@@ -10,8 +11,10 @@ private:
     void cargarEmpresa();
     void listarEmpresas();
     void listarCopiaSeguridad();
+    void listarDatosInicioEmpresa();
     void eliminarEmpresas();
     EmpresaArchivo empresaArchivo;
+    MunicipioArchivo archivoMunicipio;
 public:
     void menu();
 };

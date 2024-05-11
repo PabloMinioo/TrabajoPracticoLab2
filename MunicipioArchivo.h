@@ -14,6 +14,7 @@ public:
     bool isExist(int numeroMunicipio);
     Municipio leer(int index);
     Municipio leerCopiaSeguridad(int index);
+    Municipio leerDatosInicio(int index);
     bool modificar(Municipio municipio, int index);
     bool eliminar(int numMunicipio);
     int getCantidadMunicipios();
