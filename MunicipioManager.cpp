@@ -11,7 +11,7 @@ Municipio MunicipioManager::crearMunicipio() {
     bool estado;
     // NUMERO DE MUNICIPIO AUTOMATIZADO
     numeroMunicipio = archivoMunicipio.getCantidadMunicipios() + 1;
-    cout << "NUMERO MUNIICPIO: " << numeroMunicipio << endl;
+    cout << "NUMERO MUNICIPIO: " << numeroMunicipio << endl;
     cin.ignore();
     cout<< "INGRESE NOMBRE DE MUNICIPIO: ";
     getline(cin, nombre);

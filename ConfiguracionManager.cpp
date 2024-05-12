@@ -72,7 +72,7 @@ void ConfiguracionManager::restaurarCopiaSeguridadMunicipios() {
 }
 
 // RECIBE UN ARCHIVO ORIGEN Y UN ARCHIVO DESTINO, Y REALIZA UNA COPIA A DICHO ARCHIVO
-// ** PARA COPIAR LOS DATOS DE LOS ARCHIVOS.DAT A LOS ARCHIVOS.INI**
+// ** PARA COPIAR LOS DATOS DE LOS ARCHIVOS.DAT A LOS ARCHIVOS.INIT**
 void ConfiguracionManager::copiarArchivosInicio(string archivoOrigen, string archivoDestino) {
     bool copiar;
     cout << endl << "DESEA COPIAR LOS DATOS DEL ARCHIVO '" << archivoOrigen << "' AL ARCHIVO '" << archivoDestino << "'? 1-SI || 0- NO " << endl;
@@ -94,7 +94,7 @@ void ConfiguracionManager::copiarArchivosInicio(string archivoOrigen, string arc
 }
 
 // RECIBE UN ARCHIVO ORIGEN Y UN ARCHIVO DESTINO Y REALIZA UNA COPIA A DICHO ARCHIVO
-// ** PARA COPIAR LOS DATOS DE LOS ARCHIVOS.INI A LOS ARCHIVOS.DAT**
+// ** PARA COPIAR LOS DATOS DE LOS ARCHIVOS.INIT A LOS ARCHIVOS.DAT**
 void ConfiguracionManager::copiarArchivos(string archivoOrigen, string archivoDestino) {
     bool copiar;
     cout << endl << "DESEA COPIAR LOS DATOS DEL ARCHIVO '" << archivoOrigen << "' AL ARCHIVO '" << archivoDestino << "'? 1-SI || 0- NO " << endl;

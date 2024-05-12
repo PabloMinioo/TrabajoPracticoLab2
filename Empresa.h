@@ -26,7 +26,7 @@ private:
 public:
     /// CONSTRUCTOR
     Empresa();
-        Empresa(int numeroEmpresa, std::string nombreEmpresa, int cantidadEmpleados, int categoria, int numeroMunicipio, float facturacionAnual, bool estado);   // AGREGAR FECHA CREACION
+    Empresa(int numeroEmpresa, std::string nombreEmpresa, int cantidadEmpleados, int categoria, int numeroMunicipio, float facturacionAnual, bool estado);   // AGREGAR FECHA CREACION
 
     /// SET Y GET
     void setNumeroEmpresa(int numeroEmpresa);

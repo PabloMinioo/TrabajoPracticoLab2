@@ -3,6 +3,7 @@
 #include "EmpresaManager.h"
 #include "ConfiguracionManager.h"
 #include "MunicipioArchivo.h"
+
 using namespace std;
 
 /// METODOS CLASE EMPRESA
@@ -24,6 +25,7 @@ Empresa EmpresaManager::crearEmpresa() {
     cin >> numeroMunicipio;
     cout << "INGRESE FACTURACION ANUAL: ";
     cin >> facturacionAnual;
+//    fecha.cargar();
 //  Fecha fechaCreacion;
     return Empresa(numeroEmpresa, nombreEmpresa, cantidadEmpleados, categoria, numeroMunicipio, facturacionAnual, true);
 }
@@ -65,7 +67,6 @@ void EmpresaManager::cargarEmpresa() {
         cout << endl << "LA EMPRESA NO SE PUDO GUARDAR. NO EXISTE EL NUMERO DE MUNICIPIO" << endl;
         return;
     }
-    // VALIDACION FECHA NO VALIDA
     if(empresaArchivo.guardar(empresa)) {
         cout << endl << "LA EMPRESA GUARDADA CON EXITO" << endl;
     } else {

@@ -67,12 +67,12 @@
 		<Unit filename="MunicipioManager.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="Reportes.cpp" />
-		<Unit filename="Reportes.h">
+		<Unit filename="Reporte.cpp" />
+		<Unit filename="Reporte.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="ReportesPruebas.cpp" />
-		<Unit filename="ReportesPruebas.h">
+		<Unit filename="ReporteManager.cpp" />
+		<Unit filename="ReporteManager.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="main.cpp" />

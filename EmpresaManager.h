@@ -15,6 +15,7 @@ private:
     void eliminarEmpresas();
     EmpresaArchivo empresaArchivo;
     MunicipioArchivo archivoMunicipio;
+//    Fecha fecha;
 public:
     void menu();
 };

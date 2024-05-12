@@ -33,7 +33,7 @@ void AppManager::menu() {
             break;
         case 3:
             system("cls");
-            // REPORTE.MENU
+            reporteManager.menu();
             break;
         case 4:
             system("cls");
