@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "Fecha.h"
 /*
 CLASE EMPRESA:
     NUMERO EMPPRESA
@@ -20,13 +21,13 @@ private:
     int _cantidadEmpleados;
     int _categoria;
     int _numeroMunicipio;
-//    Fecha _fechaCreacion;
+    Fecha _fechaCreacion;
     float _facturacionAnual;
     bool _estado;
 public:
     /// CONSTRUCTOR
     Empresa();
-    Empresa(int numeroEmpresa, std::string nombreEmpresa, int cantidadEmpleados, int categoria, int numeroMunicipio, float facturacionAnual, bool estado);   // AGREGAR FECHA CREACION
+    Empresa(int numeroEmpresa, std::string nombreEmpresa, int cantidadEmpleados, int categoria, int numeroMunicipio, Fecha fechaCreacion, float facturacionAnual, bool estado);   // AGREGAR FECHA CREACION
 
     /// SET Y GET
     void setNumeroEmpresa(int numeroEmpresa);
@@ -43,6 +44,9 @@ public:
 
     void setNumeroMunicipio(int numeroMunicipio);
     int getNumeroMunicipio();
+
+    void setFechaCreacion(Fecha fechaCreacion);
+    Fecha getFechaCreacion();
 
     void setFacturacionAnual(float facturacionAnual);
     float getFacturacionAnual();

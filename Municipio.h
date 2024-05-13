@@ -2,7 +2,7 @@
 #include <string>
 
 /*
-CLASE EMPRESA:
+CLASE MUNICIPIO:
     NUMERO MUNICIPIO (1 - 135)
     NOMBRE MUNICIPIO (30 CARACTERES)
     SECCION (1 - 9)
@@ -38,5 +38,4 @@ public:
 
     void setEstado(bool estado);
     bool getEstado();
-
 };

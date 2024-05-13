@@ -20,4 +20,5 @@ public:
     bool isExist(int numeroEmpresa);
     bool copiaSeguridad(std::string fileName="empresa.bkp");
     bool restaurarCopiaSeguridad(std::string fileName="empresa.bkp");
+    bool modificar(Empresa empresa, int index);
 };

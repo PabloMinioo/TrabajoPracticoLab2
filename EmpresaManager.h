@@ -2,6 +2,7 @@
 #include "Empresa.h"
 #include "EmpresaArchivo.h"
 #include "MunicipioArchivo.h"
+#include "Fecha.h"
 
 class EmpresaManager{
 private:
@@ -13,9 +14,10 @@ private:
     void listarCopiaSeguridad();
     void listarDatosInicioEmpresa();
     void eliminarEmpresas();
+    void modificarFechaCreacion();
     EmpresaArchivo empresaArchivo;
     MunicipioArchivo archivoMunicipio;
-//    Fecha fecha;
+    Fecha fechaCreacion;
 public:
     void menu();
 };

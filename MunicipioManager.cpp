@@ -137,7 +137,7 @@ void MunicipioManager::listarMunicipios() {
 void MunicipioManager::listarCopiaSeguridad() {
     MunicipioArchivo backupArchivo("municipios.bkp");
     int cantidadMunicipio = backupArchivo.getCantidadMunicipios();
-    cout << "LISTADO DE EMPRESAS DEL BACK UP"<< endl;
+    cout << "LISTADO DE MUNICIPIOS DEL BACK UP"<< endl;
     for (int i = 0; i < cantidadMunicipio; i++) {
         Municipio municipio = backupArchivo.leerCopiaSeguridad(i);
         cout << "**********************" << endl;
@@ -148,9 +148,9 @@ void MunicipioManager::listarCopiaSeguridad() {
 
 // LISTA TODAS LAS EMPRESAS DEL ARCHIVO DATOS DE INICIO
 void MunicipioManager::listarDatosInicio() {
-    MunicipioArchivo inicioArchivo("municipios_datos_inicio.init");
+    MunicipioArchivo inicioArchivo("municipios_datos_inicio.ini");
     int cantidadMunicipio = inicioArchivo.getCantidadMunicipios();
-    cout << "LISTADO DE EMPRESAS DEL BACK UP"<< endl;
+    cout << "LISTADO DE MUNICIPIOS DATOS DE INICIO"<< endl;
     for (int i = 0; i < cantidadMunicipio; i++) {
         Municipio municipio = inicioArchivo.leerDatosInicio(i);
         cout << "**********************" << endl;

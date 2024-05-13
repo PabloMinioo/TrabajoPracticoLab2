@@ -12,17 +12,19 @@ Empresa::Empresa() {
     _cantidadEmpleados = 0;
     _categoria = 0;
     _numeroMunicipio = 0;
+    _fechaCreacion = Fecha();
     _facturacionAnual = 0;
     _estado = false;
 }
 
 // CONSTRUCTOR POR DEFECTO
-Empresa::Empresa(int numeroEmpresa, string nombreEmpresa, int cantidadEmpleados, int categoria, int numeroMunicipio, float facturacionAnual, bool estado) {
+Empresa::Empresa(int numeroEmpresa, string nombreEmpresa, int cantidadEmpleados, int categoria, int numeroMunicipio, Fecha fechaCreacion, float facturacionAnual, bool estado) {
     setNumeroEmpresa(numeroEmpresa);
     setNombreEmpresa(nombreEmpresa);
     setCantidadEmpleados(cantidadEmpleados);
     setCategoria(categoria);
     setNumeroMunicipio(numeroMunicipio);
+    setFechaCreacion(fechaCreacion);
     setFacturacionAnual(facturacionAnual);
     setEstado(estado);
 }
@@ -70,6 +72,13 @@ int  Empresa::getNumeroMunicipio() {
 
 void Empresa::setNumeroMunicipio(int numeroMunicipio) {
     _numeroMunicipio = numeroMunicipio;
+}
+
+void Empresa::setFechaCreacion(Fecha fechaCreacion){
+    _fechaCreacion = fechaCreacion;
+}
+Fecha Empresa::getFechaCreacion(){
+    return _fechaCreacion;
 }
 
 float Empresa::getFacturacionAnual( ){

@@ -79,7 +79,7 @@ Municipio MunicipioArchivo::leerCopiaSeguridad(int index) {
 // RECIBE EL NOMBRE DE UN ARCHIVO Y LO MUESTRA (DATOS DE INICIO)
 Municipio MunicipioArchivo::leerDatosInicio(int index) {
     Municipio municipioDatosInicio;
-    FILE *pFile = fopen("municipios_datos_inicio.init", "rb");
+    FILE *pFile = fopen("municipios_datos_inicio.ini", "rb");
     if (pFile == nullptr) {
         return municipioDatosInicio;
     }

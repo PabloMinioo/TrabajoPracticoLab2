@@ -72,7 +72,7 @@ void ConfiguracionManager::restaurarCopiaSeguridadMunicipios() {
 }
 
 // RECIBE UN ARCHIVO ORIGEN Y UN ARCHIVO DESTINO, Y REALIZA UNA COPIA A DICHO ARCHIVO
-// ** PARA COPIAR LOS DATOS DE LOS ARCHIVOS.DAT A LOS ARCHIVOS.INIT**
+// ** PARA COPIAR LOS DATOS DE LOS ARCHIVOS.DAT A LOS ARCHIVOS.INI**
 void ConfiguracionManager::copiarArchivosInicio(string archivoOrigen, string archivoDestino) {
     bool copiar;
     cout << endl << "DESEA COPIAR LOS DATOS DEL ARCHIVO '" << archivoOrigen << "' AL ARCHIVO '" << archivoDestino << "'? 1-SI || 0- NO " << endl;
@@ -94,7 +94,7 @@ void ConfiguracionManager::copiarArchivosInicio(string archivoOrigen, string arc
 }
 
 // RECIBE UN ARCHIVO ORIGEN Y UN ARCHIVO DESTINO Y REALIZA UNA COPIA A DICHO ARCHIVO
-// ** PARA COPIAR LOS DATOS DE LOS ARCHIVOS.INIT A LOS ARCHIVOS.DAT**
+// ** PARA COPIAR LOS DATOS DE LOS ARCHIVOS.INI A LOS ARCHIVOS.DAT**
 void ConfiguracionManager::copiarArchivos(string archivoOrigen, string archivoDestino) {
     bool copiar;
     cout << endl << "DESEA COPIAR LOS DATOS DEL ARCHIVO '" << archivoOrigen << "' AL ARCHIVO '" << archivoDestino << "'? 1-SI || 0- NO " << endl;
@@ -121,8 +121,8 @@ void ConfiguracionManager::establecerDatosInicio() {
     cout << "OPCION: ";
     cin >> copiar;
     if (copiar) {
-        copiarArchivos("empresas_datos_inicio.init", "empresas.dat");
-        copiarArchivos("municipios_datos_inicio.init", "municipios.dat");
+        copiarArchivos("empresas_datos_inicio.ini", "empresas.dat");
+        copiarArchivos("municipios_datos_inicio.ini", "municipios.dat");
         cout << endl << "AMBOS ARCHIVOS FUERON COPIADOS CORRECTAMENTE" << endl;
     } else {
         cout << "LA OPERACION FUE CANCELADA" << endl;
@@ -170,8 +170,8 @@ void ConfiguracionManager::menu() {
             break;
         case 6:
             system("cls");
-            copiarArchivosInicio("empresas.dat", "empresas_datos_inicio.init");
-            copiarArchivosInicio("municipios.dat", "municipios_datos_inicio.init");
+            copiarArchivosInicio("empresas.dat", "empresas_datos_inicio.ini");
+            copiarArchivosInicio("municipios.dat", "municipios_datos_inicio.ini");
             break;
         case 0:
             return;

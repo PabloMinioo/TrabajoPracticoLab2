@@ -95,7 +95,7 @@ Empresa EmpresaArchivo::leerCopiaSeguridad(int index) {
 // RECIBE EL NOMBRE DE UN ARCHIVO Y LO MUESTRA (DATOS INICIO)
 Empresa EmpresaArchivo::leerDatosInicio(int index) {
     Empresa empresaDatosInicio;
-    FILE *pFile = fopen("empresas_datos_inicio.init", "rb");
+    FILE *pFile = fopen("empresas_datos_inicio.ini", "rb");
     if (pFile == nullptr) {
         return empresaDatosInicio;
     }
@@ -153,5 +153,17 @@ bool EmpresaArchivo::eliminar(int numeroEmpresa){
     empresa = leer(indice);
     empresa.setEstado(0);
     return guardar(indice, empresa);
+}
+
+// RECIBE UN REGISTRO Y UNA POSICION, Y LO MODIFICA
+bool EmpresaArchivo::modificar(Empresa empresa, int index) {
+    int modifico;
+    if(!abrir("rb+")) {
+        return false;
+    }
+    fseek(_pFile, index * sizeof(Empresa), SEEK_SET);
+    modifico = fwrite(&empresa, sizeof(Empresa), 1, _pFile);
+    cerrar();
+    return modifico;
 }
 
