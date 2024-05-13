@@ -24,13 +24,11 @@ Municipio MunicipioManager::crearMunicipio() {
 
 // MUESTRA EL MUNICIPIO
 void MunicipioManager::mostrar(Municipio municipio) {
-    if (municipio.getEstado()) {
-        cout<< "NUMERO DE MUNICIPIO: "<< municipio.getNumeroMunicipio()<<endl;
-        cout<< "NOMBRE DE MUNICIPIO: "<< municipio.getNombre()<<endl;
-        cout<< "SECCION PERTENECIENTE: "<< municipio.getSeccionPerteneciente()<<endl;
-        cout<< "CANTIDAD DE HABITANTES: "<< municipio.getCantHabitantes()<<endl;
-        cout<< "ESTADO: "<< (municipio.getEstado() ? "DISPONIBLE" : "NO DISPONIBLE")<<endl;
-    }
+    cout<< "NUMERO DE MUNICIPIO: "<< municipio.getNumeroMunicipio()<<endl;
+    cout<< "NOMBRE DE MUNICIPIO: "<< municipio.getNombre()<<endl;
+    cout<< "SECCION PERTENECIENTE: "<< municipio.getSeccionPerteneciente()<<endl;
+    cout<< "CANTIDAD DE HABITANTES: "<< municipio.getCantHabitantes()<<endl;
+    cout<< "ESTADO: "<< (municipio.getEstado() ? "DISPONIBLE" : "NO DISPONIBLE")<<endl;
 }
 
 // GUARDA EL REGISTRO EN EL ARCHIVO
@@ -39,17 +37,17 @@ void MunicipioManager::cargarMunicipio() {
     municipio = crearMunicipio();
     // VALIDACION CANTIDAD DE MUNICIPIOS
     int cantidadRegistro = archivoMunicipio.getCantidadMunicipios();
-    if (cantidadRegistro == 15) {
+    if (cantidadRegistro == 135) {
         cout << endl << "EL MUNICIPIO NO SE PUDO GUARDAR. SE HA ALCANZADO LA CANTIDAD MAXIMA DE MUNICIPIOS" << endl;
         return;
     }
     // VALIDACION SECCION PERTENECIENTE
-    if (municipio.getSeccionPerteneciente() < 1 || municipio.getSeccionPerteneciente() > 9){
+    if (municipio.getSeccionPerteneciente() < 1 || municipio.getSeccionPerteneciente() > 9) {
         cout << endl << "EL MUNICIPIO NO SE PUDO GUARDAR. SECCION PERTENECIENTE NO VALIDA" << endl;
         return;
     }
     // VALIDACION CANTIDAD HABITANTES
-    if (municipio.getCantHabitantes() <= 0){
+    if (municipio.getCantHabitantes() <= 0) {
         cout << endl << "EL MUNICIPIO NO SE PUDO GUARDAR. CANTIDAD DE HABITANTES NO VALIDA" << endl;
         return;
     }
@@ -127,9 +125,11 @@ void MunicipioManager::listarMunicipios() {
     cantidadMuncipios = archivoMunicipio.getCantidadMunicipios();
     for(int i=0; i<cantidadMuncipios; i++) {
         municipio = archivoMunicipio.leer(i);
-        cout << "**********************" << endl;
-        mostrar(municipio);
-        cout << "**********************" << endl;
+        if (municipio.getEstado()) {
+            cout << "**********************" << endl;
+            mostrar(municipio);
+            cout << "**********************" << endl;
+        }
     }
 }
 

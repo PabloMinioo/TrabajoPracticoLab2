@@ -40,11 +40,11 @@
 	"MunicipioArchivo.h"
 	"Fecha.h"
 
-1715555687 source:d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\appmanager.cpp
+1715629121 source:d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\appmanager.cpp
 	<string>
 	<iostream>
-	<cstring>
 	"AppManager.h"
+	<cstring>
 
 1715461091 d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\municipioarchivo.h
 	<string>
@@ -54,11 +54,11 @@
 1715616461 d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\municipio.h
 	<string>
 
-1715555687 d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\appmanager.h
+1715629576 d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\appmanager.h
 	"EmpresaManager.h"
 	"MunicipioManager.h"
-	"ReporteManager.h"
 	"ConfiguracionManager.h"
+	"Reporte.h"
 
 1715461932 d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\municipiomanager.h
 	"Municipio.h"
@@ -119,12 +119,15 @@
 
 1715193030 source:d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\reportespruebas.cpp
 
-1715556193 source:d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\reporte.cpp
-	<string>
+1715630577 source:d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\reporte.cpp
+	<iostream>
+	<cstdlib>
 	<cstring>
 	"Reporte.h"
+	"MunicipioArchivo.h"
+	"EmpresaArchivo.h"
 
-1715556193 d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\reporte.h
+1715630461 d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\reporte.h
 	<string>
 
 1715556608 d:\cosas compu\facultad utn\laboratorio de computación\laboratorio de computación 2\ejercicios archivos\trabajopractico\reportemanager.h

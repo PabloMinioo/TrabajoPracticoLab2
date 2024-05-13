@@ -1,10 +1,10 @@
 #include <string>
 #include <iostream>
-#include <cstring>
 #include "AppManager.h"
 
 using namespace std;
 
+#include <cstring>
 /// MENU PRINCIPAL
 void AppManager::menu() {
     int opcion;
@@ -33,7 +33,7 @@ void AppManager::menu() {
             break;
         case 3:
             system("cls");
-            reporteManager.menu();
+            reporte.menu();
             break;
         case 4:
             system("cls");

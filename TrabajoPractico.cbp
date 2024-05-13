@@ -71,10 +71,6 @@
 		<Unit filename="Reporte.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
-		<Unit filename="ReporteManager.cpp" />
-		<Unit filename="ReporteManager.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

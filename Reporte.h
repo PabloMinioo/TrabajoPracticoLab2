@@ -20,4 +20,11 @@ public:
     int getNumeroMunicipio();
     std::string getNombreMunicipio();
     int getCantidadEmpleados();
+
+    // METODOS
+    void mostrar(Reporte reporte);
+    void generarReporte();
+    void mostrarReporte();
+    void menu();
 };
+

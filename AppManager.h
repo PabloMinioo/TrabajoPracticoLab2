@@ -1,8 +1,8 @@
 #pragma once
 #include "EmpresaManager.h"
 #include "MunicipioManager.h"
-#include "ReporteManager.h"
 #include "ConfiguracionManager.h"
+#include "Reporte.h"
 
 class AppManager{
 public:
@@ -10,7 +10,7 @@ public:
 private:
     EmpresaManager empresaManager;
     MunicipioManager municipioManager;
-    ReporteManager reporteManager;
+    Reporte reporte;
     ConfiguracionManager configuracionManager;
 };
 
