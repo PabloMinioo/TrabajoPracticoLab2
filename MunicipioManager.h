@@ -10,9 +10,9 @@ private:
     void modificarCantHabitantes();
     void eliminarMunicipio();
     void listarMunicipios();
-    void listarDatosInicio();
-    void listarCopiaSeguridad();
     MunicipioArchivo archivoMunicipio;
+//    void listarDatosInicio();
+//    void listarCopiaSeguridad();
 public:
     Municipio crearMunicipio();
     void mostrar(Municipio municipio);

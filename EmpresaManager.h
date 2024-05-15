@@ -11,13 +11,13 @@ private:
     void buscarEmpresa();
     void cargarEmpresa();
     void listarEmpresas();
-    void listarCopiaSeguridad();
-    void listarDatosInicioEmpresa();
     void eliminarEmpresas();
     void modificarFechaCreacion();
     EmpresaArchivo empresaArchivo;
     MunicipioArchivo archivoMunicipio;
     Fecha fechaCreacion;
+//    void listarCopiaSeguridad();
+//    void listarDatosInicioEmpresa();
 public:
     void menu();
 };

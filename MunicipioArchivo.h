@@ -13,11 +13,11 @@ public:
     int buscar(int numMunicipio);
     bool isExist(int numeroMunicipio);
     Municipio leer(int index);
-    Municipio leerCopiaSeguridad(int index);
-    Municipio leerDatosInicio(int index);
     bool modificar(Municipio municipio, int index);
     bool eliminar(int numMunicipio);
     int getCantidadMunicipios();
     bool copiaSeguridad(std::string fileName="municipios.bkp");
     bool restaurarCopiaSeguridad(std::string fileName="municipios.bkp");
+//    Municipio leerCopiaSeguridad(int index);
+//    Municipio leerDatosInicio(int index);
 };

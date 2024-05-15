@@ -79,33 +79,6 @@ Empresa EmpresaArchivo::leer(int index) {
     return empresa;
 }
 
-// RECIBE EL NOMBRE DE UN ARCHIVO Y LO MUESTRA (BAKC UP)
-Empresa EmpresaArchivo::leerCopiaSeguridad(int index) {
-    Empresa empresaBackUp;
-    FILE *pFile = fopen("empresas.bkp", "rb");
-    if (pFile == nullptr) {
-        return empresaBackUp;
-    }
-    fseek(pFile, index * sizeof(Empresa), SEEK_SET);
-    fread(&empresaBackUp, sizeof(Empresa), 1, pFile);
-    fclose(pFile);
-    return empresaBackUp;
-}
-
-// RECIBE EL NOMBRE DE UN ARCHIVO Y LO MUESTRA (DATOS INICIO)
-Empresa EmpresaArchivo::leerDatosInicio(int index) {
-    Empresa empresaDatosInicio;
-    FILE *pFile = fopen("empresas_datos_inicio.ini", "rb");
-    if (pFile == nullptr) {
-        return empresaDatosInicio;
-    }
-    fseek(pFile, index * sizeof(Empresa), SEEK_SET);
-    fread(&empresaDatosInicio, sizeof(Empresa), 1, pFile);
-    fclose(pFile);
-    return empresaDatosInicio;
-}
-
-
 // RECIBE UN NUMERO DE EMPRESA Y VALIDA SI EXISTE EL NUMERO DE EMPRESA
 bool EmpresaArchivo::isExist(int numeroEmpresa) {
     return buscar(numeroEmpresa) != -1;
@@ -166,4 +139,32 @@ bool EmpresaArchivo::modificar(Empresa empresa, int index) {
     cerrar();
     return modifico;
 }
+
+/*
+// RECIBE EL NOMBRE DE UN ARCHIVO Y LO MUESTRA (BAKC UP)
+Empresa EmpresaArchivo::leerCopiaSeguridad(int index) {
+    Empresa empresaBackUp;
+    FILE *pFile = fopen("empresas.bkp", "rb");
+    if (pFile == nullptr) {
+        return empresaBackUp;
+    }
+    fseek(pFile, index * sizeof(Empresa), SEEK_SET);
+    fread(&empresaBackUp, sizeof(Empresa), 1, pFile);
+    fclose(pFile);
+    return empresaBackUp;
+}
+
+// RECIBE EL NOMBRE DE UN ARCHIVO Y LO MUESTRA (DATOS INICIO)
+Empresa EmpresaArchivo::leerDatosInicio(int index) {
+    Empresa empresaDatosInicio;
+    FILE *pFile = fopen("empresas_datos_inicio.ini", "rb");
+    if (pFile == nullptr) {
+        return empresaDatosInicio;
+    }
+    fseek(pFile, index * sizeof(Empresa), SEEK_SET);
+    fread(&empresaDatosInicio, sizeof(Empresa), 1, pFile);
+    fclose(pFile);
+    return empresaDatosInicio;
+}
+*/
 

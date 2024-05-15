@@ -12,9 +12,9 @@ private:
     void crearCopiaSeguridadMunicipios();
     void restaurarCopiaSeguridadEmpresas();
     void restaurarCopiaSeguridadMunicipios();
-    void copiarArchivosInicio(std::string archivoOrigen, std::string archivoDestino);
-    void copiarArchivos(std::string archivoOrigen, std::string archivoDestino);
     void establecerDatosInicio();
+    void copiarArchivos(std::string archivoOrigen, std::string archivoDestino);
+//    void copiarArchivosInicio(std::string archivoOrigen, std::string archivoDestino);
 public:
     void menu();
 

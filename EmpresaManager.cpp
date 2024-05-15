@@ -51,7 +51,7 @@ void EmpresaManager::cargarEmpresa() {
     empresa = crearEmpresa();
     // VALIDACION NUMERO DE EMPRERSA POSITIVO
     if (empresa.getNumeroEmpresa() <= 0) {
-        cout << endl << "LA EMPRESA NO SE PUDO GUARDAR. NUMERO DE EMPRESA NO VALID" << endl;
+        cout << endl << "LA EMPRESA NO SE PUDO GUARDAR. NUMERO DE EMPRESA NO VALIDO" << endl;
         return;
     }
     // VALIDACION NUMERO DE EMPRESA EXISTENTE
@@ -116,32 +116,6 @@ void EmpresaManager::listarEmpresas() {
             mostrar(empresa);
             cout << "**********************" << endl;
         }
-    }
-}
-
-// LISTA TODAS LAS EMPRESAS DEL ARCHIVO BACK UP
-void EmpresaManager::listarCopiaSeguridad() {
-    EmpresaArchivo backupArchivo("empresas.bkp");
-    int cantidad = backupArchivo.getCantidadRegistros();
-    cout << "LISTADO DE EMPRESAS DEL BACK UP" << endl;
-    for (int i = 0; i < cantidad; i++) {
-        Empresa empresa = backupArchivo.leerCopiaSeguridad(i);
-        cout << "**********************" << endl;
-        mostrar(empresa);
-        cout << "**********************" << endl;
-    }
-}
-
-// LISTA TODAS LAS EMPRESAS DEL ARCHIVO DATOS DE INICIO
-void EmpresaManager::listarDatosInicioEmpresa() {
-    EmpresaArchivo inicioArchivo("empresas_datos_inicio.ini");
-    int cantidad = inicioArchivo.getCantidadRegistros();
-    cout << "LISTADO DE EMPRESAS DEL ARCHIVO DATOS DE INICIO" << endl;
-    for (int i = 0; i < cantidad; i++) {
-        Empresa empresa = inicioArchivo.leerDatosInicio(i);
-        cout << "**********************" << endl;
-        mostrar(empresa);
-        cout << "**********************" << endl;
     }
 }
 
@@ -212,8 +186,6 @@ void EmpresaManager::menu() {
         cout << "3- LISTAR TODAS LAS EMPRESAS" << endl;
         cout << "4- MODIFICAR FECHA DE CREACION" << endl;
         cout << "5- ELIMINAR EMPRESA LOGICA " << endl;
-        cout << "6- LISTAR COPIA SEGURIDAD" << endl;
-        cout << "7- LISTAR DATOS DE INICIO" << endl;
         cout << "-------------------------------" << endl;
         cout << "0- VOLVER AL MENU PRINCIPAL " << endl;
         cout << "-------------------------------" << endl;
@@ -240,14 +212,6 @@ void EmpresaManager::menu() {
             system("cls");
             eliminarEmpresas();
             break;
-        case 6:
-            system("cls");
-            listarCopiaSeguridad();
-            break;
-        case 7:
-            system("cls");
-            listarDatosInicioEmpresa();
-            break;
         case 0:
             return;
         default:
@@ -257,3 +221,33 @@ void EmpresaManager::menu() {
         system("pause");
     } while(opcion != 0);
 }
+
+
+/// METODOS QUE UTILIZAMOS EN EL DESARROLLO DEL TP
+/*
+// LISTA TODAS LAS EMPRESAS DEL ARCHIVO BACK UP
+void EmpresaManager::listarCopiaSeguridad() {
+    EmpresaArchivo backupArchivo("empresas.bkp");
+    int cantidad = backupArchivo.getCantidadRegistros();
+    cout << "LISTADO DE EMPRESAS DEL BACK UP" << endl;
+    for (int i = 0; i < cantidad; i++) {
+        Empresa empresa = backupArchivo.leerCopiaSeguridad(i);
+        cout << "**********************" << endl;
+        mostrar(empresa);
+        cout << "**********************" << endl;
+    }
+}
+
+// LISTA TODAS LAS EMPRESAS DEL ARCHIVO DATOS DE INICIO
+void EmpresaManager::listarDatosInicioEmpresa() {
+    EmpresaArchivo inicioArchivo("empresas_datos_inicio.ini");
+    int cantidad = inicioArchivo.getCantidadRegistros();
+    cout << "LISTADO DE EMPRESAS DEL ARCHIVO DATOS DE INICIO" << endl;
+    for (int i = 0; i < cantidad; i++) {
+        Empresa empresa = inicioArchivo.leerDatosInicio(i);
+        cout << "**********************" << endl;
+        mostrar(empresa);
+        cout << "**********************" << endl;
+    }
+}
+*/

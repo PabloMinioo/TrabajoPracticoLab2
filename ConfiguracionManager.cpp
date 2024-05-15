@@ -70,29 +70,6 @@ void ConfiguracionManager::restaurarCopiaSeguridadMunicipios() {
         cout << "LA OPERACION FUE CANCELADA" << endl;
     }
 }
-
-// RECIBE UN ARCHIVO ORIGEN Y UN ARCHIVO DESTINO, Y REALIZA UNA COPIA A DICHO ARCHIVO
-// ** PARA COPIAR LOS DATOS DE LOS ARCHIVOS.DAT A LOS ARCHIVOS.INI**
-void ConfiguracionManager::copiarArchivosInicio(string archivoOrigen, string archivoDestino) {
-    bool copiar;
-    cout << endl << "DESEA COPIAR LOS DATOS DEL ARCHIVO '" << archivoOrigen << "' AL ARCHIVO '" << archivoDestino << "'? 1-SI || 0- NO " << endl;
-    cout << "OPCION: ";
-    cin >> copiar;
-    // COPIAMOS LOS ARCHIVOS. AL USAR WINDOWS USAMOS "COPY"
-    if (copiar) {
-        string copiarArchivo = "copy " + string(archivoOrigen) + " " + string(archivoDestino);
-        int seCopio = system(copiarArchivo.c_str()); // COMANDO DE SYSTEM PARA COPIAR ARCHIVOS. 0 = EXITO || 1 = FALLA
-        cout << endl;
-        if (seCopio == 0) {
-            cout << "EL ARCHIVO SE COPIO CORRECTAMENTE" << endl;
-        } else {
-            cout << "NO SE PUDO COPIAR EL ARCHIVO" << endl;
-        }
-    } else {
-        cout << "LA OPERACION FUE CANCELADA" << endl;
-    }
-}
-
 // RECIBE UN ARCHIVO ORIGEN Y UN ARCHIVO DESTINO Y REALIZA UNA COPIA A DICHO ARCHIVO
 // ** PARA COPIAR LOS DATOS DE LOS ARCHIVOS.INI A LOS ARCHIVOS.DAT**
 void ConfiguracionManager::copiarArchivos(string archivoOrigen, string archivoDestino) {
@@ -114,7 +91,7 @@ void ConfiguracionManager::copiarArchivos(string archivoOrigen, string archivoDe
         cout << "LA OPERACION FUE CANCELADA" << endl;
     }
 }
-//// COPIA LOS DATOS DEL ARCHIVO ORIGEN AL ARCHIVO DESTINO
+// COPIA LOS DATOS DEL ARCHIVO ORIGEN AL ARCHIVO DESTINO
 void ConfiguracionManager::establecerDatosInicio() {
     bool copiar;
     cout << "DESEA COPIAR LOS DATOS DE INCIO A SUS RESPECTIVOS ARCHIVOS.DAT? 1-SI || 0- NO " << endl;
@@ -141,7 +118,6 @@ void ConfiguracionManager::menu() {
         cout << "3- RESTAURAR EL ARCHIVO DE EMPRESAS" << endl;
         cout << "4- RESTAURAR EL ARCHIVO DE MUNICIPIO " << endl;
         cout << "5- ESTABLECER DATOS DE INICIO" << endl;
-        cout << "6- COPIAR ARCHIVOS A 'DATOS_INICIO.INI'" << endl;
         cout << "-------------------------------" << endl;
         cout << "0- VOLVER AL MENU PRINCIPAL " << endl;
         cout << "-------------------------------" << endl;
@@ -168,11 +144,6 @@ void ConfiguracionManager::menu() {
             system("cls");
             establecerDatosInicio();
             break;
-        case 6:
-            system("cls");
-            copiarArchivosInicio("empresas.dat", "empresas_datos_inicio.ini");
-            copiarArchivosInicio("municipios.dat", "municipios_datos_inicio.ini");
-            break;
         case 0:
             return;
         default:
@@ -182,3 +153,28 @@ void ConfiguracionManager::menu() {
         system("pause");
     } while(opcion != 0);
 }
+
+/// METODOS QUE UTILIZAMOS EN EL DESARROLLO DEL TP
+/*
+// RECIBE UN ARCHIVO ORIGEN Y UN ARCHIVO DESTINO, Y REALIZA UNA COPIA A DICHO ARCHIVO
+// ** PARA COPIAR LOS DATOS DE LOS ARCHIVOS.DAT A LOS ARCHIVOS.INI**
+void ConfiguracionManager::copiarArchivosInicio(string archivoOrigen, string archivoDestino) {
+    bool copiar;
+    cout << endl << "DESEA COPIAR LOS DATOS DEL ARCHIVO '" << archivoOrigen << "' AL ARCHIVO '" << archivoDestino << "'? 1-SI || 0- NO " << endl;
+    cout << "OPCION: ";
+    cin >> copiar;
+    // COPIAMOS LOS ARCHIVOS. AL USAR WINDOWS USAMOS "COPY"
+    if (copiar) {
+        string copiarArchivo = "copy " + string(archivoOrigen) + " " + string(archivoDestino);
+        int seCopio = system(copiarArchivo.c_str()); // COMANDO DE SYSTEM PARA COPIAR ARCHIVOS. 0 = EXITO || 1 = FALLA
+        cout << endl;
+        if (seCopio == 0) {
+            cout << "EL ARCHIVO SE COPIO CORRECTAMENTE" << endl;
+        } else {
+            cout << "NO SE PUDO COPIAR EL ARCHIVO" << endl;
+        }
+    } else {
+        cout << "LA OPERACION FUE CANCELADA" << endl;
+    }
+}
+*/

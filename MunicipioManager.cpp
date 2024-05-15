@@ -4,6 +4,7 @@
 
 using namespace std;
 
+/// METODOS CLASE MUNICIPIO
 // CREA EL MUNICIPIO
 Municipio MunicipioManager::crearMunicipio() {
     int numeroMunicipio, seccionPerteneciente, cantHabitantes;
@@ -132,35 +133,7 @@ void MunicipioManager::listarMunicipios() {
         }
     }
 }
-
-// LISTA TODAS LAS EMPRESAS DEL ARCHIVO BACK UP
-void MunicipioManager::listarCopiaSeguridad() {
-    MunicipioArchivo backupArchivo("municipios.bkp");
-    int cantidadMunicipio = backupArchivo.getCantidadMunicipios();
-    cout << "LISTADO DE MUNICIPIOS DEL BACK UP"<< endl;
-    for (int i = 0; i < cantidadMunicipio; i++) {
-        Municipio municipio = backupArchivo.leerCopiaSeguridad(i);
-        cout << "**********************" << endl;
-        mostrar(municipio);
-        cout << "**********************" << endl;
-    }
-}
-
-// LISTA TODAS LAS EMPRESAS DEL ARCHIVO DATOS DE INICIO
-void MunicipioManager::listarDatosInicio() {
-    MunicipioArchivo inicioArchivo("municipios_datos_inicio.ini");
-    int cantidadMunicipio = inicioArchivo.getCantidadMunicipios();
-    cout << "LISTADO DE MUNICIPIOS DATOS DE INICIO"<< endl;
-    for (int i = 0; i < cantidadMunicipio; i++) {
-        Municipio municipio = inicioArchivo.leerDatosInicio(i);
-        cout << "**********************" << endl;
-        mostrar(municipio);
-        cout << "**********************" << endl;
-    }
-}
-
-
-// MENU MUNICIPIO
+/// MENU MUNICIPIO
 void MunicipioManager::menu() {
     int opcion;
     do {
@@ -172,7 +145,6 @@ void MunicipioManager::menu() {
         cout << "3- LISTAR TODAS LOS MUNICIPIOS"<<endl;
         cout << "4- MODIFICAR CANTIDAD DE HABITANTES"<<endl;
         cout << "5- ELIMINAR REGISTRO"<<endl;
-        cout << "6- LISTAR COPIA DE SEGURIDAD"<<endl;
         cout << "-------------------------------" << endl;
         cout << "0- VOLVER AL MENU PRINCIPAL " << endl;
         cout << "-------------------------------" << endl;
@@ -199,14 +171,6 @@ void MunicipioManager::menu() {
             system("cls");
             eliminarMunicipio();
             break;
-        case 6:
-            system("cls");
-            listarCopiaSeguridad();
-            break;
-        case 7:
-            system("cls");
-            listarDatosInicio();
-            break;
         case 0:
             return;
         default:
@@ -220,3 +184,33 @@ void MunicipioManager::menu() {
 
 
 }
+
+/// METODOS QUE UTILIZAMOS EN EL DESARROLLO DEL TP
+/*
+// LISTA TODAS LAS EMPRESAS DEL ARCHIVO BACK UP
+void MunicipioManager::listarCopiaSeguridad() {
+    MunicipioArchivo backupArchivo("municipios.bkp");
+    int cantidadMunicipio = backupArchivo.getCantidadMunicipios();
+    cout << "LISTADO DE MUNICIPIOS DEL BACK UP"<< endl;
+    for (int i = 0; i < cantidadMunicipio; i++) {
+        Municipio municipio = backupArchivo.leerCopiaSeguridad(i);
+        cout << "**********************" << endl;
+        mostrar(municipio);
+        cout << "**********************" << endl;
+    }
+}
+
+// LISTA TODAS LAS EMPRESAS DEL ARCHIVO DATOS DE INICIO
+void MunicipioManager::listarDatosInicio() {
+    MunicipioArchivo inicioArchivo("municipios_datos_inicio.ini");
+    int cantidadMunicipio = inicioArchivo.getCantidadMunicipios();
+    cout << "LISTADO DE MUNICIPIOS DATOS DE INICIO"<< endl;
+    for (int i = 0; i < cantidadMunicipio; i++) {
+        Municipio municipio = inicioArchivo.leerDatosInicio(i);
+        cout << "**********************" << endl;
+        mostrar(municipio);
+        cout << "**********************" << endl;
+    }
+}
+*/
+
